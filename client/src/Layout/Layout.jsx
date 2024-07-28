@@ -9,6 +9,8 @@ import About from "../Components/About.jsx";
 import Home from "../Components/Home.jsx"
 import Sell from "../Components/Sell.jsx";
 import Partners from "../Components/Partners.jsx";
+import Details from "../Components/Details.jsx";
+import NotFound from "../Components/NotFound.jsx";
 
 
 export default function Layout () {
@@ -27,6 +29,8 @@ export default function Layout () {
           <Route path="/sell" element={<Sell />}/>
           <Route path="/partners" element={<Partners />}/>
           <Route path="/bestcars" element={<BestCars />}/>
+          <Route path="/details" element={<Details />}/>
+          <Route path="*" element={<NotFound />}/>
         </Routes>
      
       </main>

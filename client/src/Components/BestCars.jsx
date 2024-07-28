@@ -17,7 +17,7 @@ export default function BestCars () {
         <div className="-mx-3 flex flex-wrap justify-center mb-12">
           <div className="p-3 w-full md:w-6/12 lg:w-4/12">
             <div className="bg-white border shadow-md text-gray-500">
-              <a href="#">
+              <a href="/details">
                 <img
                   src="https://images.unsplash.com/photo-1575090536203-2a6193126514?ixid=MnwyMDkyMnwwfDF8c2VhcmNofDN8fGh5dW5kYWl8ZW58MHx8fHwxNjMxNjk3ODI1&ixlib=rb-1.2.1q=85&fm=jpg&crop=faces&cs=srgb&w=600&h=450&fit=crop"
                   className="hover:opacity-90 w-full"
