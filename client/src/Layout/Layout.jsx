@@ -1,25 +1,36 @@
-import Latest from "../Components/Latest.jsx";
-import Footer from "../Components/Footer.jsx";
+import { Routes, Route } from "react-router-dom"
 import Header from "../Components/Header.jsx";
-import Hero from "../Components/Hero.jsx";
-import SearchBox from "../Components/SearchBox.jsx";
-import Register from "../Components/Register/Register.jsx"
+import Footer from "../Components/Footer.jsx";
+import LoginPage from "../Components/LoginPage.jsx";
+import RegisterPage from "../Components/RegisterPage.jsx";
+import BestCars from "../Components/BestCars.jsx";
+import ContactUs from "../Components/ConstactUs.jsx";
+import About from "../Components/About.jsx";
+import Home from "../Components/Home.jsx"
+import Sell from "../Components/Sell.jsx";
+import Partners from "../Components/Partners.jsx";
 
 
-
-const Layout = () => {
+export default function Layout () {
 
     return (
       <>
       <Header />
-      <SearchBox />
-        <main>
-        <Hero />
-        <Latest />
-        </main>
-        <Footer />
+      <main>
+        
+        <Routes>
+          <Route path="/about" element={<About />}/>
+          <Route path="/" element={<Home />}/>
+          <Route path="/login" element={<LoginPage />}/>
+          <Route path="/register" element={<RegisterPage />}/>
+          <Route path="/contact" element={<ContactUs />}/>
+          <Route path="/sell" element={<Sell />}/>
+          <Route path="/partners" element={<Partners />}/>
+          <Route path="/bestcars" element={<BestCars />}/>
+        </Routes>
+     
+      </main>
+      <Footer />
       </>
     );
   };
-  
-  export default Layout;

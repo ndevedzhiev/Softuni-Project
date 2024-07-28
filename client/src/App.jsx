@@ -1,12 +1,11 @@
 import Layout from "./Layout/Layout.jsx"
 
-function App() {
-
+export default function App() {
+ 
   return (
     <>
-      <Layout />
+     <Layout />
     </>
   )
 }
 
-export default App

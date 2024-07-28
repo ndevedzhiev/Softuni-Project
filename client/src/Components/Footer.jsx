@@ -1,180 +1,72 @@
 export default function Footer () {
     return (
-        <footer className="footer">
-  <div className="footer-top">
-    <div className="container">
-      <div className="footer-brand">
-        <a href="#" className="logo">
-          Gamics
-        </a>
-        <p className="footer-text">
-          Gamics marketplace the relase etras thats sheets continig passag.
-        </p>
-        <ul className="contact-list">
-          <li className="contact-item">
-            <div className="contact-icon">
-              <ion-icon name="location" />
-            </div>
-            <address className="item-text">
-              Address : PO Box W75 Street lan West new queens
-            </address>
-          </li>
-          <li className="contact-item">
-            <div className="contact-icon">
-              <ion-icon name="headset" />
-            </div>
-            <a href="tel:+241245654235" className="item-text">
-              Phone : +24 1245 654 235
-            </a>
-          </li>
-          <li className="contact-item">
-            <div className="contact-icon">
-              <ion-icon name="mail-open" />
-            </div>
-            <a href="mailto:info@exemple.com" className="item-text">
-              Email : info@exemple.com
-            </a>
-          </li>
-        </ul>
-      </div>
-      <ul className="footer-list">
-        <li>
-          <p className="footer-list-title">Products</p>
-        </li>
-        <li>
-          <a href="#" className="footer-link">
-            Graphics (26)
-          </a>
-        </li>
-        <li>
-          <a href="#" className="footer-link">
-            Backgrounds (11)
-          </a>
-        </li>
-        <li>
-          <a href="#" className="footer-link">
-            Fonts (9)
-          </a>
-        </li>
-        <li>
-          <a href="#" className="footer-link">
-            Music (3)
-          </a>
-        </li>
-        <li>
-          <a href="#" className="footer-link">
-            Photography (3)
-          </a>
-        </li>
-      </ul>
-      <ul className="footer-list">
-        <li>
-          <p className="footer-list-title">Need Help?</p>
-        </li>
-        <li>
-          <a href="#" className="footer-link">
-            Terms &amp; Conditions
-          </a>
-        </li>
-        <li>
-          <a href="#" className="footer-link">
-            Privacy Policy
-          </a>
-        </li>
-        <li>
-          <a href="#" className="footer-link">
-            Refund Policy
-          </a>
-        </li>
-        <li>
-          <a href="#" className="footer-link">
-            Affiliate
-          </a>
-        </li>
-        <li>
-          <a href="#" className="footer-link">
-            Use Cases
-          </a>
-        </li>
-      </ul>
-      <div className="footer-wrapper">
-        <div className="social-wrapper">
-          <p className="footer-list-title">Follow Us</p>
-          <ul className="social-list">
-            <li>
-              <a
-                href="#"
-                className="social-link"
-                style={{ backgroundColor: "#3b5998" }}
-              >
-                <ion-icon name="logo-facebook" />
-              </a>
+        <footer className="bg-white dark:bg-gray-800 pt-4 pb-8 xl:pt-8 mt-14">
+  <div className="max-w-screen-lg px-4 mx-auto text-gray-400 xl:max-w-screen-xl sm:px-6 md:px-8 dark:text-gray-300">
+    <ul className="flex flex-wrap justify-center pb-8 text-lg font-light">
+      <li className="w-1/2 md:w-1/3 lg:w-1/3">
+        <div className="text-center">
+          <h2 className="text-gray-500 dark:text-gray-200 text-md uppercase mb-4">
+            Components
+          </h2>
+          <ul>
+            <li className="mb-4 transition-colors duration-200 hover:text-gray-800 dark:hover:text-white">
+              <a href="#">Elements</a>
             </li>
-            <li>
-              <a
-                href="#"
-                className="social-link"
-                style={{ backgroundColor: "#55acee" }}
-              >
-                <ion-icon name="logo-twitter" />
-              </a>
+            <li className="mb-4 transition-colors duration-200 hover:text-gray-800 dark:hover:text-white">
+              <a href="#">Forms</a>
             </li>
-            <li>
-              <a
-                href="#"
-                className="social-link"
-                style={{ backgroundColor: "#d71e18" }}
-              >
-                <ion-icon name="logo-pinterest" />
-              </a>
+            <li className="mb-4 transition-colors duration-200 hover:text-gray-800 dark:hover:text-white">
+              <a href="#">Commerces</a>
             </li>
-            <li>
-              <a
-                href="#"
-                className="social-link"
-                style={{ backgroundColor: "#1565c0" }}
-              >
-                <ion-icon name="logo-linkedin" />
-              </a>
+            <li className="mb-4 transition-colors duration-200 hover:text-gray-800 dark:hover:text-white">
+              <a href="#">Navigation</a>
             </li>
           </ul>
         </div>
-        <div className="footer-newsletter">
-          <p className="footer-list-title">Newsletter Sign Up</p>
-          <form action="" className="footer-newsletter">
-            <input
-              type="email"
-              name="email_address"
-              aria-label="email"
-              placeholder="Enter your email"
-              required=""
-              className="email-field"
-            />
-            <button type="submit" className="footer-btn" aria-label="submit">
-              <ion-icon name="rocket" />
-            </button>
-          </form>
+      </li>
+      <li className="w-1/2 md:w-1/3 lg:w-1/3">
+        <div className="text-center">
+          <h2 className="text-gray-500 dark:text-gray-200 text-md uppercase mb-4">
+            Contacts
+          </h2>
+          <ul>
+            <li className="mb-4 transition-colors duration-200 hover:text-gray-800 dark:hover:text-white">
+              <a href="#">Github</a>
+            </li>
+            <li className="mb-4 transition-colors duration-200 hover:text-gray-800 dark:hover:text-white">
+              <a href="#">Facebook</a>
+            </li>
+            <li className="mb-4 transition-colors duration-200 hover:text-gray-800 dark:hover:text-white">
+              <a href="#">Twitter</a>
+            </li>
+            <li className="mb-4 transition-colors duration-200 hover:text-gray-800 dark:hover:text-white">
+              <a href="#">LinkedIn</a>
+            </li>
+          </ul>
         </div>
-      </div>
-    </div>
-  </div>
-  <div className="footer-bottom">
-    <div className="container">
-      <p className="copyright">
-        © 2022 Gamics. All Right Reserved by{" "}
-        <a href="#" className="copyright-link">
-          codewithsadee
-        </a>
-      </p>
-      <img
-        src="./assets/images/footer-bottom-img.png"
-        width={340}
-        height={21}
-        loading="lazy"
-        alt=""
-        className="footer-bottom-img"
-      />
-    </div>
+      </li>
+      <li className="w-1/2 md:w-1/3 lg:w-1/3">
+        <div className="text-center">
+          <h2 className="text-gray-500 dark:text-gray-200 text-md uppercase mb-4">
+            Customization
+          </h2>
+          <ul>
+            <li className="mb-4 transition-colors duration-200 hover:text-gray-800 dark:hover:text-white">
+              <a href="#">Settings</a>
+            </li>
+            <li className="mb-4 transition-colors duration-200 hover:text-gray-800 dark:hover:text-white">
+              <a href="#">Themes</a>
+            </li>
+            <li className="mb-4 transition-colors duration-200 hover:text-gray-800 dark:hover:text-white">
+              <a href="#">Plugins</a>
+            </li>
+            <li className="mb-4 transition-colors duration-200 hover:text-gray-800 dark:hover:text-white">
+              <a href="#">LinkedIn</a>
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
   </div>
 </footer>
 
