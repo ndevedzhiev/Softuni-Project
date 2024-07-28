@@ -1,5 +1,18 @@
+import { useState } from "react";
+import FeedbackSent from "./FeedbackSent.jsx";
+
 export default function ContactUs () {
-    return (
+    
+  const FeedbackComponent = () => {
+    const [feedbackSent, setFeedbackSent] = useState(false);
+  
+    const handleFeedbackSent = () => {
+      setFeedbackSent(true);
+    };
+  }
+  
+  
+  return (
       <div className="py-4 lg:py-8 relative">
       <img
         src="https://cdn.tuk.dev/assets/templates/radian/Back_Image.png"
@@ -97,8 +110,8 @@ export default function ContactUs () {
                     defaultValue={""}
                   />
                 </div>
-                <div className="py-5">
-                  <button className="py-3 md:py-5 dark:bg-white dark:text-gray-800 px-5 md:px-10 bg-gray-900 text-white hover:opacity-90 ease-in duration-150 text-sm md:text-lg tracking-wider font-semibold focus:border-4 focus:ring-2 focus:ring-offset-2 focus:ring-gray-900">
+                <div  className="py-5">
+                  <button onClick={FeedbackSent} className="py-3 md:py-5 dark:bg-white dark:text-gray-800 px-5 md:px-10 bg-gray-900 text-white hover:opacity-90 ease-in duration-150 text-sm md:text-lg tracking-wider font-semibold focus:border-4 focus:ring-2 focus:ring-offset-2 focus:ring-gray-900">
                     Send
                   </button>
                 </div>

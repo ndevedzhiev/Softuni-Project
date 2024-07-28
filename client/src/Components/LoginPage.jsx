@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 export default function LoginPage () {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-100"
@@ -52,9 +54,9 @@ export default function LoginPage () {
     </form>
     <p className="text-center text-gray-600 mt-4">
       Don't have an account?{" "}
-      <a href="/register" className="text-blue-500 font-semibold">
+      <Link to="/register" className="text-blue-500 font-semibold">
         Sign Up
-      </a>
+      </Link>
     </p>
   </div>
 </div>

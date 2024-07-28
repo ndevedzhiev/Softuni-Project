@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 export default function HeroSection() {
     return (
       <div className="relative bg-[url('https://www.brabus.com/_Resources/Persistent/5/3/2/0/5320571be65a0c882934323d1a7c18b92f3dbc94/BRABUS%20930_S63%20E%20Performance_On%20Location_sky_klein%20%2844%29.jpg')] bg-cover bg-center bg-no-repeat">
@@ -15,18 +17,18 @@ export default function HeroSection() {
         Welcome to Prime Cars, your premier destination for quality pre-owned vehicles. Explore our wide range of inspected and certified cars, ensuring you drive home in a reliable and affordable vehicle.
       </p>
       <div className="mt-8 flex flex-wrap gap-4 justify-center text-center">
-        <a
-          href="/register"
+        <Link
+          to="/register"
           className="block w-full rounded bg-rose-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-rose-700 focus:outline-none focus:ring active:bg-rose-500 sm:w-auto"
         >
           Get Started
-        </a>
-        <a
-          href="/bestcars"
+        </Link>
+        <Link
+          to="/bestcars"
           className="block w-full rounded bg-white px-12 py-3 text-sm font-medium text-rose-600 shadow hover:text-rose-700 focus:outline-none focus:ring active:text-rose-500 sm:w-auto"
         >
           Show The Best Deals
-        </a>
+        </Link>
       </div>
     </div>
   </div>

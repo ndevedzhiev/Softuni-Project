@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 export default function NotFound() {
     return (
         <section className="bg-white dark:bg-gray-900">
@@ -12,7 +14,7 @@ export default function NotFound() {
     
     <div className="flex justify-center mt-6 -mt-11">
       <button className= "bg-blue-500 text-white px-20 py-3 rounded-full transition duration-300 ease-in-out transform hover:bg-blue-600 hover:scale-105 -mt-12">
-        <a href="/">Back To Home Page</a>
+        <Link to="/">Back To Home Page</Link>
       </button>
     </div>
 </section>
