@@ -3,9 +3,14 @@ import { Link } from "react-router-dom"
 export default function LoginPage () {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-100"
-      style={{ backgroundImage: 'url("https://images.wallpaperscraft.com/image/single/cars_parking_dividing_lines_122567_2560x1440.jpg")' }}>
+      style={{ 
+        backgroundImage: 'url("https://i.postimg.cc/XJzD0zxp/jamie-street-Jt-P-Dqtz6-D8-unsplash.jpg")', 
+        backgroundRepeat: 'no-repeat', 
+        backgroundSize: 'cover', 
+        backgroundPosition: 'center' 
+      }}>
         
-  <div className="bg-white rounded-lg shadow-lg p-8 max-w-md w-full">
+  <div className="bg-white rounded-lg shadow-lg p-8 max-w-md w-full -mt-20">
     <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
       Sign In
     </h2>
@@ -48,13 +53,14 @@ export default function LoginPage () {
       <button
         type="submit"
         className="w-full bg-blue-500 text-white py-2 rounded-lg font-semibold hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50"
+        style={{backgroundColor: '#E11D48'}}
       >
         Sign In
       </button>
     </form>
     <p className="text-center text-gray-600 mt-4">
       Don't have an account?{" "}
-      <Link to="/register" className="text-blue-500 font-semibold">
+      <Link to="/register" className="text-black-500 font-semibold">
         Sign Up
       </Link>
     </p>

@@ -1,0 +1,47 @@
+{
+    "cars": [
+      {
+        "_id": 1,
+        "make": "Mercedes-Benz",
+        "model": "E-class",
+        "color": "Black",
+        "year": "2008"
+      },
+      {
+        "_id": 2,
+        "make": "Hyundai",
+        "model": "Santa-Fe",
+        "color": "White",
+        "year": "2022"
+      },
+      {
+        "_id": 3,
+        "make": "Honda",
+        "model": "Accord",
+        "color": "Red",
+        "year": "2016"
+      },
+      {
+        "_id": 4,
+        "make": "Mercedes-Benz",
+        "model": "C-class",
+        "color": "Silver",
+        "year": "2012"
+      },
+      {
+        "_id": 5,
+        "make": "BMW",
+        "model": "3-Series",
+        "color": "Blue",
+        "year": "2002"
+      },
+      {
+        "_id": 6,
+        "make": "Tesla",
+        "model": "Model 3",
+        "color": "Brown",
+        "year": "2024"
+      }
+    ]
+  }
+  

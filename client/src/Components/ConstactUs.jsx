@@ -37,7 +37,9 @@ export default function ContactUs () {
                   We believe that delivering an exceptional car buying and selling experience is essential to helping our customers find the perfect vehicle and achieve their automotive goals.
                   </h2>
                   <div className="mt-4 md:mt-8">
-                    <h2 className="text-sm md:text-base text-indigo-700 font-semibold">
+                    <h2 className="text-sm md:text-base text-indigo-700 font-semibold"
+                    style={{color: '#E11D48'}}
+                    >
                       Address
                     </h2>
                     <h2 className="text-gray-800 text-base md:text-lg leading-8 tracking-wider mt-2">
@@ -45,7 +47,9 @@ export default function ContactUs () {
                     </h2>
                   </div>
                   <div className="mt-4 md:mt-8">
-                    <h2 className="text-sm md:text-base text-indigo-700 font-semibold">
+                    <h2 className="text-sm md:text-base text-indigo-700 font-semibold"
+                    style={{color: '#E11D48'}}
+                    >
                       Contact
                     </h2>
                     <h2 className="text-gray-800 text-base md:text-lg leading-8 tracking-wider mt-2">
@@ -56,7 +60,9 @@ export default function ContactUs () {
                     </h2>
                   </div>
                   <div className="mt-4 md:mt-8">
-                    <h2 className="text-sm md:text-base text-indigo-700 font-semibold">
+                    <h2 className="text-sm md:text-base text-indigo-700 font-semibold"
+                    style={{color: '#E11D48'}}
+                    >
                       Email
                     </h2>
                     <h2 className="text-gray-800 text-base md:text-lg leading-8 tracking-wider mt-2">
@@ -69,7 +75,8 @@ export default function ContactUs () {
           </div>
           <div className="w-full lg:w-1/2 xl:pt-10 lg:pl-24">
             <div className="flex flex-col items-start xl:justify-start 2xl:justify-end xl:px-0 px-4">
-              <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-wider text-indigo-700">
+              <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-wider text-indigo-700"
+              style={{color: '#E11D48'}}>
                 Let’s Talk
               </h1>
               <div className="w-full 2xl:w-8/12 mt-3" role="form">
@@ -111,7 +118,8 @@ export default function ContactUs () {
                   />
                 </div>
                 <div  className="py-5">
-                  <button onClick={FeedbackSent} className="py-3 md:py-5 dark:bg-white dark:text-gray-800 px-5 md:px-10 bg-gray-900 text-white hover:opacity-90 ease-in duration-150 text-sm md:text-lg tracking-wider font-semibold focus:border-4 focus:ring-2 focus:ring-offset-2 focus:ring-gray-900">
+                  <button onClick={FeedbackSent} className="py-3 md:py-5 dark:bg-white dark:text-gray-800 px-5 md:px-10 bg-gray-900 text-white hover:opacity-90 ease-in duration-150 text-sm md:text-lg tracking-wider font-semibold focus:border-4 focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
+                    style={{backgroundColor: '#E11D48'}}>
                     Send
                   </button>
                 </div>

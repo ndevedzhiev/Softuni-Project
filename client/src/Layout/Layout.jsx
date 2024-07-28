@@ -15,12 +15,10 @@ import NotFound from "../Components/NotFound.jsx";
 
 export default function Layout () {
 
-    return (
+return (
       <>
-      <Header />
-      <main>
-        
-        <Routes>
+    <Header />
+     <Routes>
           <Route path="/about" element={<About />}/>
           <Route path="/" element={<Home />}/>
           <Route path="/login" element={<LoginPage />}/>
@@ -32,9 +30,7 @@ export default function Layout () {
           <Route path="/details" element={<Details />}/>
           <Route path="*" element={<NotFound />}/>
         </Routes>
-     
-      </main>
-      <Footer />
+     <Footer />
       </>
-    );
-  };
+  );
+};
