@@ -1,19 +1,13 @@
 import { useEffect, useState } from "react"
-
-export default function BestCars () {
-
+import * as carsApi from '../../api/cars-api.js'
+export default function AllCars () {
+  
   const [cars, setCars] = useState([])
-
   useEffect(() => {
-    (async () => {
-      const response = await fetch('http://localhost:3030/jsonstore/cars')
-      const result =  await response.json()
+    carsApi.getAllCars()
+    .then(result => setCars(result))
+  }, [])
 
-      setCars(result)
-    })
-
-    
-  })
     return (
       <section className="bg-gray-50 py-24">
       

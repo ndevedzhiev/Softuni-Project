@@ -1,17 +1,5 @@
-import { useState } from "react";
-import FeedbackSent from "./FeedbackSent.jsx";
-
 export default function ContactUs () {
-    
-  const FeedbackComponent = () => {
-    const [feedbackSent, setFeedbackSent] = useState(false);
-  
-    const handleFeedbackSent = () => {
-      setFeedbackSent(true);
-    };
-  }
-  
-  
+      
   return (
       <div className="py-4 lg:py-8 relative">
       <img
