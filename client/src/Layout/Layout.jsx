@@ -29,7 +29,7 @@ return (
           <Route path="/bestcars" element={<BestCars />}/>
           <Route path="/details" element={<Details />}/>
           <Route path="*" element={<NotFound />}/>
-        </Routes>
+         </Routes>
      <Footer />
       </>
   );

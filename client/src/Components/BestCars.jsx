@@ -1,47 +1,19 @@
+import { useEffect, useState } from "react"
+
 export default function BestCars () {
 
-  const cars = [
-    {
-      make: 'Mercedes-Benz',
-      model: 'E-class',
-      color: 'Black',
-      year: '2008'
-    },
+  const [cars, setCars] = useState([])
 
-    {
-      make: 'Hyundai',
-      model: 'Santa-Fe',
-      color: 'White',
-      year: '2022'
-      },
-      
-    {
-      make: 'Honda',
-      model: 'Accord',
-      color: 'Red',
-      year: '2016'
-        },
+  useEffect(() => {
+    (async () => {
+      const response = await fetch('http://localhost:3030/jsonstore/cars')
+      const result =  await response.json()
 
-    {
-      make: 'Mercedes-Benz',
-      model: 'C-class',
-      color: 'Silver',
-      year: '2012'
-          },
+      setCars(result)
+    })
 
-    {
-      make: 'BMW',
-      model: '3-Series',
-      color: 'Blue',
-      year: '2002'
-        },
-    {
-      make: 'Tesla',
-      model: 'Model 3',
-      color: 'Brown',
-      year: '2024'
-            }
-  ]
+    
+  })
     return (
       <section className="bg-gray-50 py-24">
       
@@ -59,6 +31,7 @@ export default function BestCars () {
             <div className="bg-primary-500 mb-6 pb-1 w-2/12" />
           </div>
         </div>
+        
         <div className="-mx-3 flex flex-wrap justify-center mb-12">
           <div className="p-3 w-full md:w-6/12 lg:w-4/12">
             <div className="bg-white border shadow-md text-gray-500">
