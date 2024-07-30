@@ -1,58 +1,62 @@
 {
-  "cars": {
-    "dbaee66f-09c4-42ce-9fe6-e0dae4d30a11": {
-      "imageUrl": "https://cdn.motor1.com/images/mgl/6xXWo/s1/2022-audi-a4.jpg",
+  "dbaee66f-09c4-42ce-9fe6-e0dae4d30a11": {
+      "imageUrl": "https://hips.hearstapps.com/hmg-prod/images/2022-audi-a4-mmp-1-1621027611.jpg",
       "make": "Audi",
       "model": "A4",
       "color": "Grey",
       "year": "2022",
       "summary": "The 2022 grey Audi A4 is a luxury compact sedan that blends elegant design with advanced technology, offering a refined driving experience. Known for its high-quality interior and smooth handling, it's a top choice for luxury car enthusiasts.",
-      "_id": "dbaee66f-09c4-42ce-9fe6-e0dae4d30a11"
+      "_id": "dbaee66f-09c4-42ce-9fe6-e0dae4d30a11",
+      "price": "$35,000"
     },
     "f2e9d516-7622-4923-a42a-1324756581d4": {
-      "imageUrl": "https://cdn.jdpower.com/JDPA_2021%20Toyota%20Camry%20XLE%20Red%20Front%20View.jpg",
+      "imageUrl": "https://www.motorbiscuit.com/wp-content/uploads/2020/08/20_CamryTRD_SupersonicRed_MidnightRoof_0031-scaled.jpg?w=902&h=507&crop=1",
       "make": "Toyota",
       "model": "Camry",
       "color": "Red",
       "year": "2021",
       "summary": "The 2021 red Toyota Camry is a reliable midsize sedan known for its fuel efficiency and safety features. It combines a comfortable interior with a smooth ride, making it a popular choice for daily commuters.",
-      "_id": "f2e9d516-7622-4923-a42a-1324756581d4"
+      "_id": "f2e9d516-7622-4923-a42a-1324756581d4",
+      "price": "$25,000"
     },
     "484caa33-11f6-49a7-b494-2d8e48657ce0": {
-      "imageUrl": "https://hips.hearstapps.com/hmg-prod/images/2022-ford-mustang-mach-1-103-1613060923.jpg",
+      "imageUrl": "https://www.cnet.com/a/img/resize/2f76ba45f3db233a35587f9fa8b1d3ec4863ffc7/hub/2021/10/06/66b5bcf9-0d37-4b16-a837-4674f6c4ae68/2022-ford-mustang-gt-california-special-02.jpg?auto=webp&width=1920",
       "make": "Ford",
       "model": "Mustang",
       "color": "Blue",
       "year": "2022",
       "summary": "The 2022 blue Ford Mustang is an iconic sports car that offers exhilarating performance and aggressive styling. Known for its powerful engine options and thrilling driving experience, it remains a favorite among car enthusiasts.",
-      "_id": "484caa33-11f6-49a7-b494-2d8e48657ce0"
+      "_id": "484caa33-11f6-49a7-b494-2d8e48657ce0",
+      "price": "$40,000"
     },
     "6065a629-0a4e-4430-901c-803af1b25895": {
-      "imageUrl": "https://cdn.motor1.com/images/mgl/87QJ6/s3/2022-volvo-xc90.jpg",
+      "imageUrl": "https://www.motortrend.com/uploads/sites/5/2020/06/2020-Volvo-XC90-T8-E-AWD-Inscription-30.jpg?w=768&width=768&q=75&format=webp",
       "make": "Volvo",
       "model": "XC90",
       "color": "White",
       "year": "2022",
       "summary": "The 2022 white Volvo XC90 is a luxury SUV that combines Scandinavian design with advanced safety features. It offers a spacious and refined interior, making it a top choice for families seeking comfort and reliability.",
-      "_id": "6065a629-0a4e-4430-901c-803af1b25895"
+      "_id": "6065a629-0a4e-4430-901c-803af1b25895",
+      "price": "$60,000"
     },
     "422d47b0-8f97-4d7a-b166-f0f93f3a7d4c": {
-      "imageUrl": "https://www.cstatic-images.com/car-pictures/xl/usc90bmc681a021001.png",
+      "imageUrl": "https://spots.ag/2021/06/23/chevrolet-camaro-ss-c391223062021040435_1.jpg",
       "make": "Chevrolet",
       "model": "Camaro",
       "color": "Yellow",
       "year": "2021",
       "summary": "The 2021 yellow Chevrolet Camaro is a high-performance sports car known for its bold design and powerful engine options. It delivers an exhilarating driving experience with sharp handling and modern technology.",
-      "_id": "422d47b0-8f97-4d7a-b166-f0f93f3a7d4c"
+      "_id": "422d47b0-8f97-4d7a-b166-f0f93f3a7d4c",
+      "price": "$30,000"
     },
     "3b6d866a-31e1-4b5e-a937-e24f342ec4a2": {
-      "imageUrl": "https://www.cstatic-images.com/car-pictures/xl/usc80bmw681a021001.png",
+      "imageUrl": "https://i0.wp.com/swerveautos.com/wp-content/uploads/2021/12/x5e-24.jpg?fit=3840%2C1762",
       "make": "BMW",
       "model": "X5",
       "color": "Black",
       "year": "2021",
       "summary": "The 2021 black BMW X5 is a luxury midsize SUV that combines powerful performance with a sophisticated interior. It offers advanced technology, spacious seating, and a smooth, comfortable ride for both city and highway driving.",
-      "_id": "3b6d866a-31e1-4b5e-a937-e24f342ec4a2"
-    }
-  }
+      "_id": "3b6d866a-31e1-4b5e-a937-e24f342ec4a2",
+      "price": "$70,000"
+   }
 }

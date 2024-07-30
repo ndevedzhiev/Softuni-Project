@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react"
 import * as carsApi from '../../api/cars-api.js'
-import { Link } from "react-router-dom"
 import CarItem from "./Car-item.jsx"
+
+
 export default function AllCars () {
-  
+
   const [cars, setCars] = useState([])
   
   useEffect(() => {
       carsApi.getAllCars()
-        .then(result => setCars(result))
+    .then(result =>  setCars(result))
+    
   }, [])
+  
 
     return (
       <section className="bg-gray-50 py-24">
@@ -28,16 +31,12 @@ export default function AllCars () {
     
     {/* Car Grid */}
     <div className="flex flex-wrap -mx-3 mb-12">
-            {/* Car Block Example */}
-            <CarItem />
+            
+    {cars.map(car => <CarItem key={car._id} {...car} />)}
+          
     </div>
     
-    <div className="flex justify-center mt-6">
-      <button className="bg-blue-500 text-white px-20 py-3 rounded-full transition duration-300 ease-in-out transform hover:bg-blue-600 hover:scale-105 -mt-12" style={{ backgroundColor: '#E11D48' }}>
-        View All
-      </button>
-    </div>
-  </div>
+ </div>
 </section>
 
 
