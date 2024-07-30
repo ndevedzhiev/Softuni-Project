@@ -17,6 +17,7 @@
 - Service layer architecture (function or future based architecture)
 - Create Requester
 - Add car API
+- Create json file with the information
 
 
 4. Page implementation

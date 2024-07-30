@@ -3,7 +3,7 @@ import Header from "../Components/header/HeaderGuest.jsx";
 import Footer from "../Components/footer/Footer.jsx";
 import LoginPage from "../Components/login/LoginPage.jsx";
 import RegisterPage from "../Components/register/RegisterPage.jsx";
-import BestCars from "../Components/bestCars/AllCars.jsx";
+import BestCars from "../Components/cars/AllCars.jsx";
 import ContactUs from "../Components/contactUs/ContactUs.jsx";
 import About from "../Components/About.jsx";
 import Home from "../Components/home/Home.jsx"

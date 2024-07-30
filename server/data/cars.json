@@ -1,46 +1,58 @@
 {
-  "cars": [
-    {
-      
-      "make": "Mercedes-Benz",
-      "model": "E-class",
-      "color": "Black",
-      "year": "2008"
+  "cars": {
+    "dbaee66f-09c4-42ce-9fe6-e0dae4d30a11": {
+      "imageUrl": "https://cdn.motor1.com/images/mgl/6xXWo/s1/2022-audi-a4.jpg",
+      "make": "Audi",
+      "model": "A4",
+      "color": "Grey",
+      "year": "2022",
+      "summary": "The 2022 grey Audi A4 is a luxury compact sedan that blends elegant design with advanced technology, offering a refined driving experience. Known for its high-quality interior and smooth handling, it's a top choice for luxury car enthusiasts.",
+      "_id": "dbaee66f-09c4-42ce-9fe6-e0dae4d30a11"
     },
-    {
-      
-      "make": "Hyundai",
-      "model": "Santa-Fe",
-      "color": "White",
-      "year": "2022"
-    },
-    {
-      
-      "make": "Honda",
-      "model": "Accord",
+    "f2e9d516-7622-4923-a42a-1324756581d4": {
+      "imageUrl": "https://cdn.jdpower.com/JDPA_2021%20Toyota%20Camry%20XLE%20Red%20Front%20View.jpg",
+      "make": "Toyota",
+      "model": "Camry",
       "color": "Red",
-      "year": "2016"
+      "year": "2021",
+      "summary": "The 2021 red Toyota Camry is a reliable midsize sedan known for its fuel efficiency and safety features. It combines a comfortable interior with a smooth ride, making it a popular choice for daily commuters.",
+      "_id": "f2e9d516-7622-4923-a42a-1324756581d4"
     },
-    {
-      
-      "make": "Mercedes-Benz",
-      "model": "C-class",
-      "color": "Silver",
-      "year": "2012"
-    },
-    {
-      
-      "make": "BMW",
-      "model": "3-Series",
+    "484caa33-11f6-49a7-b494-2d8e48657ce0": {
+      "imageUrl": "https://hips.hearstapps.com/hmg-prod/images/2022-ford-mustang-mach-1-103-1613060923.jpg",
+      "make": "Ford",
+      "model": "Mustang",
       "color": "Blue",
-      "year": "2002"
+      "year": "2022",
+      "summary": "The 2022 blue Ford Mustang is an iconic sports car that offers exhilarating performance and aggressive styling. Known for its powerful engine options and thrilling driving experience, it remains a favorite among car enthusiasts.",
+      "_id": "484caa33-11f6-49a7-b494-2d8e48657ce0"
     },
-    {
-      
-      "make": "Tesla",
-      "model": "Model 3",
-      "color": "Brown",
-      "year": "2024"
+    "6065a629-0a4e-4430-901c-803af1b25895": {
+      "imageUrl": "https://cdn.motor1.com/images/mgl/87QJ6/s3/2022-volvo-xc90.jpg",
+      "make": "Volvo",
+      "model": "XC90",
+      "color": "White",
+      "year": "2022",
+      "summary": "The 2022 white Volvo XC90 is a luxury SUV that combines Scandinavian design with advanced safety features. It offers a spacious and refined interior, making it a top choice for families seeking comfort and reliability.",
+      "_id": "6065a629-0a4e-4430-901c-803af1b25895"
+    },
+    "422d47b0-8f97-4d7a-b166-f0f93f3a7d4c": {
+      "imageUrl": "https://www.cstatic-images.com/car-pictures/xl/usc90bmc681a021001.png",
+      "make": "Chevrolet",
+      "model": "Camaro",
+      "color": "Yellow",
+      "year": "2021",
+      "summary": "The 2021 yellow Chevrolet Camaro is a high-performance sports car known for its bold design and powerful engine options. It delivers an exhilarating driving experience with sharp handling and modern technology.",
+      "_id": "422d47b0-8f97-4d7a-b166-f0f93f3a7d4c"
+    },
+    "3b6d866a-31e1-4b5e-a937-e24f342ec4a2": {
+      "imageUrl": "https://www.cstatic-images.com/car-pictures/xl/usc80bmw681a021001.png",
+      "make": "BMW",
+      "model": "X5",
+      "color": "Black",
+      "year": "2021",
+      "summary": "The 2021 black BMW X5 is a luxury midsize SUV that combines powerful performance with a sophisticated interior. It offers advanced technology, spacious seating, and a smooth, comfortable ride for both city and highway driving.",
+      "_id": "3b6d866a-31e1-4b5e-a937-e24f342ec4a2"
     }
-  ]
+  }
 }
