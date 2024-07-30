@@ -21,3 +21,5 @@
 
 4. Page implementation
 - Game list
+- Details
+- Home
