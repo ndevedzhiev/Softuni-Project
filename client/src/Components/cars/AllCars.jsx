@@ -31,8 +31,13 @@ export default function AllCars () {
     
     {/* Car Grid */}
     <div className="flex flex-wrap -mx-3 mb-12">
-            
-    {cars.map(car => <CarItem key={car._id} {...car} />)}
+            {cars.length > 0
+            ? cars.map(car => <CarItem key={car._id} {...car} />)
+            : <h1 className="text-center text-xl font-semibold text-gray-600 mt-8">
+            No cars yet
+            </h1>
+        }
+    {}
           
     </div>
     
