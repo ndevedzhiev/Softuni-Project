@@ -46,82 +46,123 @@ function SellCarForm() {
 
   return (
     <div className="flex justify-center items-center h-screen bg-gray-100">
-      <form className="bg-white p-8 rounded shadow-md w-full max-w-md">
-        <h2 className="text-2xl font-bold mb-6 text-center">Sell Your Car</h2>
-        
-        <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="make">
-            Make
-          </label>
-          <select
-            id="make"
-            value={selectedMake}
-            onChange={handleMakeChange}
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          >
-            <option value="">Select car make</option>
-            {carMakes.map((make) => (
-              <option key={make} value={make}>{make}</option>
-            ))}
-          </select>
-        </div>
-
-        <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="model">
-            Model
-          </label>
-          <select
-            id="model"
-            value={selectedModel}
-            onChange={(e) => setSelectedModel(e.target.value)}
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            disabled={!selectedMake}
-          >
-            <option value="">Select car model</option>
-            {selectedMake && carModels[selectedMake].map((model) => (
-              <option key={model} value={model}>{model}</option>
-            ))}
-          </select>
-        </div>
-
-        <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="color">
-            Color
-          </label>
-          <select
-            id="color"
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          >
-            <option value="">Select car color</option>
-            {carColors.map((color) => (
-              <option key={color} value={color}>{color}</option>
-            ))}
-          </select>
-        </div>
-
-        <div className="mb-6">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="year">
-            Year of Production
-          </label>
-          <input
-            id="year"
-            type="number"
-            placeholder="Enter year of production"
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          />
-        </div>
-
-        <div className="flex items-center justify-between">
-          <button
-            type="submit"
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            style={{backgroundColor: '#E11D48'}}
-          >
-            Submit
-          </button>
-        </div>
-      </form>
+  <form className="bg-white p-8 rounded shadow-md w-full max-w-md">
+    <h2 className="text-2xl font-bold mb-6 text-center">Sell Your Car</h2>
+    
+    <div className="mb-4">
+      <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="make">
+        Make
+      </label>
+      <select
+        id="make"
+        value={selectedMake}
+        onChange={handleMakeChange}
+        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+      >
+        <option value="">Select car make</option>
+        {carMakes.map((make) => (
+          <option key={make} value={make}>{make}</option>
+        ))}
+      </select>
     </div>
+
+    <div className="mb-4">
+      <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="model">
+        Model
+      </label>
+      <select
+        id="model"
+        value={selectedModel}
+        onChange={(e) => setSelectedModel(e.target.value)}
+        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        disabled={!selectedMake}
+      >
+        <option value="">Select car model</option>
+        {selectedMake && carModels[selectedMake].map((model) => (
+          <option key={model} value={model}>{model}</option>
+        ))}
+      </select>
+    </div>
+
+    <div className="mb-4">
+      <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="color">
+        Color
+      </label>
+      <select
+        id="color"
+        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+      >
+        <option value="">Select car color</option>
+        {carColors.map((color) => (
+          <option key={color} value={color}>{color}</option>
+        ))}
+      </select>
+    </div>
+
+    <div className="mb-6">
+      <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="year">
+        Year of Production
+      </label>
+      <select
+        id="year"
+        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+      >
+        <option value="">Select year</option>
+        {Array.from({ length: 2024 - 1980 + 1 }, (_, i) => 1980 + i).map(year => (
+          <option key={year} value={year}>{year}</option>
+        ))}
+      </select>
+    </div>
+    
+    <div className="mb-6">
+      <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="price">
+        Price
+      </label>
+      <input
+        id="price"
+        type="text"
+        placeholder="Enter the price of your car"
+        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+      />
+    </div>
+
+    <div className="mb-6">
+      <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="summary">
+        Summary
+      </label>
+      <textarea
+        id="summary"
+        placeholder="Enter a brief summary of your car"
+        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+      />
+    </div>
+
+    <div className="mb-6">
+      <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="imageUrl">
+        Image URL
+      </label>
+      <input
+        id="imageUrl"
+        type="text"
+        placeholder="Enter the URL of your car image"
+        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+      />
+    </div>
+
+    <div className="flex items-center justify-between">
+      <button
+        type="submit"
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        style={{backgroundColor: '#E11D48'}}
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</div>
+
+
+
   );
 }
 

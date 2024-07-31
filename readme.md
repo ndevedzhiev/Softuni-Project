@@ -22,5 +22,10 @@
 
 4. Page implementation
 - Game list
-- Details (Link and Route and API function)
-- Home
+- Details (Link and Route, API Function, Comments)
+- Home (Latest Cars)
+
+5. Comments
+- Create service for nested resourse comments
+- Post comment to server
+- Read comments from server
