@@ -58,5 +58,17 @@
       "summary": "The 2021 black BMW X5 is a luxury midsize SUV that combines powerful performance with a sophisticated interior. It offers advanced technology, spacious seating, and a smooth, comfortable ride for both city and highway driving.",
       "_id": "3b6d866a-31e1-4b5e-a937-e24f342ec4a2",
       "price": "$70,000"
-   }
+   },
+
+   "e09e9802-61e2-4732-9359-6533dedb0c3b": {
+        "imageUrl": "https://bluesky.cdn.imgeng.in/cogstock-images/c99403a8-9c6a-4388-b0fb-679c54c5b2ab.jpg?imgeng=/w_960/",
+        "make": "Mercedes-Benz",
+        "model": "CLK",
+        "color": "Black",
+        "year": "2009",
+        "summary": "The 2008 Mercedes CLK is a luxury coupe that exudes elegance and performance. Known for its sleek design, powerful engine options, and top-notch interior quality, the CLK offers a refined driving experience.",
+        "_id": "e09e9802-61e2-4732-9359-6533dedb0c3b",
+        "price": "$15,000"
+    }
+   
 }

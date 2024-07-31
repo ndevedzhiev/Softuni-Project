@@ -1,8 +1,23 @@
+import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
+import carsApi from "../../api/cars-api.js"
+import LatestCar from "./LatestCar.jsx"
 
-export default function HeroSection() {
+export default function Home() {
+
+  const [latestCars, setLatestCars] = useState([])
+  
+  
+  useEffect(() => {
+      (async () => {
+        const result = await carsApi.getAllCars()
+        setLatestCars(result.reverse().slice(0, 3))
+    })()
+  }, [])
+    
     return (
-      <div className="relative bg-[url('https://www.brabus.com/_Resources/Persistent/5/3/2/0/5320571be65a0c882934323d1a7c18b92f3dbc94/BRABUS%20930_S63%20E%20Performance_On%20Location_sky_klein%20%2844%29.jpg')] bg-cover bg-center bg-no-repeat">
+<div>
+<div className="relative bg-[url('https://www.brabus.com/_Resources/Persistent/5/3/2/0/5320571be65a0c882934323d1a7c18b92f3dbc94/BRABUS%20930_S63%20E%20Performance_On%20Location_sky_klein%20%2844%29.jpg')] bg-cover bg-center bg-no-repeat">
   <div className="absolute inset-0 bg-gray-900/75 sm:bg-transparent sm:from-gray-900/95 sm:to-gray-900/25 ltr:sm:bg-gradient-to-r rtl:sm:bg-gradient-to-l" />
   <div className="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8">
     <div className="max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
@@ -33,7 +48,15 @@ export default function HeroSection() {
     </div>
   </div>
 </div>
-
+    <div className="flex flex-wrap -mx-3 mb-12">
+      { latestCars.length > 0
+      ? latestCars.map(car => <LatestCar {...car} />)
+      : <h1 className="text-center text-xl font-semibold text-gray-600 mt-8">
+          No articles yet
+        </h1>
+      }
+    </div>
+</div>
 
 
 

@@ -1,7 +1,20 @@
-export default function ContactUs () {
-      
+import React, { useState } from 'react';
+
+export default function ContactUs() {
+
+  const [isFeedbackSent, setIsFeedbackSent] = useState(false);
+
+  const handleFeedbackSent = () => {
+    setIsFeedbackSent(true);
+
+
+    setTimeout(() => {
+      setIsFeedbackSent(false);
+    }, 3000);
+  };
+
   return (
-      <div className="py-4 lg:py-8 relative">
+    <div className="py-4 lg:py-8 relative">
       <img
         src="https://cdn.tuk.dev/assets/templates/radian/Back_Image.png"
         className="h-2/5 lg:h-full w-full lg:w-1/2 absolute inset-0 object-cover object-center xl:block hidden"
@@ -22,12 +35,10 @@ export default function ContactUs () {
                 </h1>
                 <div className="w-full md:w-10/12 mt-3">
                   <h2 className="text-gray-800 text-base md:text-lg leading-8 tracking-wider">
-                  We believe that delivering an exceptional car buying and selling experience is essential to helping our customers find the perfect vehicle and achieve their automotive goals.
+                    We believe that delivering an exceptional car buying and selling experience is essential to helping our customers find the perfect vehicle and achieve their automotive goals.
                   </h2>
                   <div className="mt-4 md:mt-8">
-                    <h2 className="text-sm md:text-base text-indigo-700 font-semibold"
-                    style={{color: '#E11D48'}}
-                    >
+                    <h2 className="text-sm md:text-base text-indigo-700 font-semibold" style={{ color: '#E11D48' }}>
                       Address
                     </h2>
                     <h2 className="text-gray-800 text-base md:text-lg leading-8 tracking-wider mt-2">
@@ -35,9 +46,7 @@ export default function ContactUs () {
                     </h2>
                   </div>
                   <div className="mt-4 md:mt-8">
-                    <h2 className="text-sm md:text-base text-indigo-700 font-semibold"
-                    style={{color: '#E11D48'}}
-                    >
+                    <h2 className="text-sm md:text-base text-indigo-700 font-semibold" style={{ color: '#E11D48' }}>
                       Contact
                     </h2>
                     <h2 className="text-gray-800 text-base md:text-lg leading-8 tracking-wider mt-2">
@@ -48,9 +57,7 @@ export default function ContactUs () {
                     </h2>
                   </div>
                   <div className="mt-4 md:mt-8">
-                    <h2 className="text-sm md:text-base text-indigo-700 font-semibold"
-                    style={{color: '#E11D48'}}
-                    >
+                    <h2 className="text-sm md:text-base text-indigo-700 font-semibold" style={{ color: '#E11D48' }}>
                       Email
                     </h2>
                     <h2 className="text-gray-800 text-base md:text-lg leading-8 tracking-wider mt-2">
@@ -63,8 +70,7 @@ export default function ContactUs () {
           </div>
           <div className="w-full lg:w-1/2 xl:pt-10 lg:pl-24">
             <div className="flex flex-col items-start xl:justify-start 2xl:justify-end xl:px-0 px-4">
-              <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-wider text-indigo-700"
-              style={{color: '#E11D48'}}>
+              <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-wider text-indigo-700" style={{ color: '#E11D48' }}>
                 Let’s Talk
               </h1>
               <div className="w-full 2xl:w-8/12 mt-3" role="form">
@@ -105,19 +111,25 @@ export default function ContactUs () {
                     defaultValue={""}
                   />
                 </div>
-                <div  className="py-5">
-                  <button onClick={FeedbackSent} className="py-3 md:py-5 dark:bg-white dark:text-gray-800 px-5 md:px-10 bg-gray-900 text-white hover:opacity-90 ease-in duration-150 text-sm md:text-lg tracking-wider font-semibold focus:border-4 focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
-                    style={{backgroundColor: '#E11D48'}}>
+                <div className="py-5">
+                  <button
+                    onClick={handleFeedbackSent}
+                    className="py-3 md:py-5 dark:bg-white dark:text-gray-800 px-5 md:px-10 bg-gray-900 text-white hover:opacity-90 ease-in duration-150 text-sm md:text-lg tracking-wider font-semibold focus:border-4 focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
+                    style={{ backgroundColor: '#E11D48' }}
+                  >
                     Send
                   </button>
                 </div>
+                {isFeedbackSent && (
+                  <div className="mt-4 text-center text-lg text-green-600 font-semibold">
+                    Thank you for your feedback!
+                  </div>
+                )}
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    
-
-    )
+  );
 }

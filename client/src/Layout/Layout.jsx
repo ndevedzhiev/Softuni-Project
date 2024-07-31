@@ -9,9 +9,10 @@ import About from "../Components/About.jsx";
 import Home from "../Components/home/Home.jsx"
 import Sell from "../Components/Sell.jsx";
 import Partners from "../Components/Partners.jsx";
-import Details from "../Components/Details.jsx";
+import Details from "../Components/cars/Details.jsx";
 import NotFound from "../Components/NotFound.jsx";
 import AllCars from "../Components/cars/AllCars.jsx";
+
 
 
 export default function Layout () {
@@ -29,6 +30,7 @@ return (
               <Route path="/sell" element={<Sell />}/>
               <Route path="/partners" element={<Partners />}/>
               <Route path="/allcars" element={<AllCars />}/>
+              <Route path="/cars/:carId/details" element={<Details />}/>
               <Route path="/details" element={<Details />}/>
               <Route path="*" element={<NotFound />}/>
          </Routes>

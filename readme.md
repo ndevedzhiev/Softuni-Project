@@ -22,5 +22,5 @@
 
 4. Page implementation
 - Game list
-- Details
+- Details (Link and Route and API function)
 - Home

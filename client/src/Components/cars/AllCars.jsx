@@ -34,7 +34,7 @@ export default function AllCars () {
             {cars.length > 0
             ? cars.map(car => <CarItem key={car._id} {...car} />)
             : <h1 className="text-center text-xl font-semibold text-gray-600 mt-8">
-            No cars yet
+            No articles yet
             </h1>
         }
     {}

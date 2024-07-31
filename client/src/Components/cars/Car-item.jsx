@@ -40,9 +40,9 @@ export default function CarItem(
                           </div>
                           <p className="font-bold text-gray-900">Price {price}</p>
                       </div>
-                        <button className="bg-[#E11D48] text-white px-6 py-2 rounded-md transition duration-400 ease-in-out hover:bg-[#D12D40]">
+                        <Link to={`/cars/${_id}/details`} className="bg-[#E11D48] text-white px-6 py-2 rounded-md transition duration-400 ease-in-out hover:bg-[#D12D40]">
                             View Details
-                        </button>
+                        </Link>
                 </div>
               </div>
             </div>

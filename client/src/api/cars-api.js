@@ -12,3 +12,12 @@ export const getAllCars = async () => {
     
 }
 
+export const getOne = (carId) => request.get(`${baseUrl}/${carId}`);
+
+const carsApi = {
+    
+    getAllCars,
+    getOne
+    
+}
+export default carsApi
