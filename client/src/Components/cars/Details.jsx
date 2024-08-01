@@ -45,7 +45,7 @@ export default function Details() {
               src={car.imageUrl}
               alt={`${car.make} ${car.model}`}
               className="w-full h-auto object-cover"
-              style={{ maxHeight: '500px' }}
+              style={{ maxHeight: '700px' }}
             />
             </div>
           </div>

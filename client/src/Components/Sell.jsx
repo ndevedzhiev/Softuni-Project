@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import useForm from '../hooks/useForm.js';
 
 function SellCarForm() {
   const carMakes = [
@@ -44,9 +45,23 @@ function SellCarForm() {
     setSelectedModel('');
   };
 
+  // Initialize useForm with initial values
+  const { values, changeHandler, submitHandler } = useForm({
+    make: '',
+    model: '',
+    color: '',
+    year: '',
+    price: '',
+    summary: '',
+    imageUrl: ''
+  }, (values) => {
+    console.log(values)
+    console.log("form submitted");;
+  });
+
   return (
     <div className="flex justify-center items-center h-screen bg-gray-100">
-  <form className="bg-white p-8 rounded shadow-md w-full max-w-md">
+  <form onSubmit={submitHandler} className="bg-white p-8 rounded shadow-md w-full max-w-md">
     <h2 className="text-2xl font-bold mb-6 text-center">Sell Your Car</h2>
     
     <div className="mb-4">
@@ -55,8 +70,12 @@ function SellCarForm() {
       </label>
       <select
         id="make"
+        name="make"
         value={selectedMake}
-        onChange={handleMakeChange}
+        onChange={(e) => {
+          handleMakeChange(e);
+          changeHandler(e);
+        }}
         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
       >
         <option value="">Select car make</option>
@@ -72,8 +91,12 @@ function SellCarForm() {
       </label>
       <select
         id="model"
+        name="model"
         value={selectedModel}
-        onChange={(e) => setSelectedModel(e.target.value)}
+        onChange={(e) => {
+          setSelectedModel(e.target.value);
+          changeHandler(e);
+        }}
         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
         disabled={!selectedMake}
       >
@@ -90,6 +113,9 @@ function SellCarForm() {
       </label>
       <select
         id="color"
+        name="color"
+        value={values.color}
+        onChange={changeHandler}
         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
       >
         <option value="">Select car color</option>
@@ -105,6 +131,9 @@ function SellCarForm() {
       </label>
       <select
         id="year"
+        name="year"
+        value={values.year}
+        onChange={changeHandler}
         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
       >
         <option value="">Select year</option>
@@ -113,14 +142,17 @@ function SellCarForm() {
         ))}
       </select>
     </div>
-    
+
     <div className="mb-6">
       <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="price">
         Price
       </label>
       <input
         id="price"
+        name="price"
         type="text"
+        value={values.price}
+        onChange={changeHandler}
         placeholder="Enter the price of your car"
         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
       />
@@ -132,6 +164,9 @@ function SellCarForm() {
       </label>
       <textarea
         id="summary"
+        name="summary"
+        value={values.summary}
+        onChange={changeHandler}
         placeholder="Enter a brief summary of your car"
         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
       />
@@ -143,7 +178,10 @@ function SellCarForm() {
       </label>
       <input
         id="imageUrl"
+        name="imageUrl"
         type="text"
+        value={values.imageUrl}
+        onChange={changeHandler}
         placeholder="Enter the URL of your car image"
         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
       />
@@ -155,13 +193,11 @@ function SellCarForm() {
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
         style={{backgroundColor: '#E11D48'}}
       >
-        Submit
+        Create
       </button>
     </div>
   </form>
 </div>
-
-
 
   );
 }

@@ -40,7 +40,7 @@ export default function About () {
             alt="Alexa featured Image"
           />
           <p className="font-medium text-xl leading-5 text-gray-800 dark:text-white mt-4">
-            Vasko
+            Steven
           </p>
         </div>
         <div className="p-4 pb-6 flex justify-center flex-col items-center">
@@ -50,7 +50,7 @@ export default function About () {
             alt="Olivia featured Image"
           />
           <p className="font-medium text-xl leading-5 text-gray-800 dark:text-white mt-4">
-            Genadi
+            Peter
           </p>
         </div>
         <div className="p-4 pb-6 flex justify-center flex-col items-center">
@@ -60,7 +60,7 @@ export default function About () {
             alt="Liam featued Image"
           />
           <p className="font-medium text-xl leading-5 text-gray-800 dark:text-white mt-4">
-            Jivko
+            Johnathan
           </p>
         </div>
         <div className="p-4 pb-6 flex justify-center flex-col items-center">
@@ -70,7 +70,7 @@ export default function About () {
             alt="Elijah featured image"
           />
           <p className="font-medium text-xl leading-5 text-gray-800 dark:text-white mt-4">
-            Tsonko
+            Mike
           </p>
         </div>
       </div>

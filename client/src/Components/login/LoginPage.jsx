@@ -4,7 +4,7 @@ export default function LoginPage () {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-100"
       style={{ 
-        backgroundImage: 'url("https://i.postimg.cc/XJzD0zxp/jamie-street-Jt-P-Dqtz6-D8-unsplash.jpg")', 
+        backgroundImage: 'url("https://c.wallhere.com/photos/cd/d0/3000x2000_px_Arny_North_bmw_BMW_Z4_men_model_nature_sea-835959.jpg!d")', 
         backgroundRepeat: 'no-repeat', 
         backgroundSize: 'cover', 
         backgroundPosition: 'center' 
