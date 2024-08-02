@@ -17,8 +17,8 @@ export default function AllCars () {
     return (
       <section className="bg-gray-50 py-24">
   <div className="container mx-auto px-4">
-    <div className="-mx-4 flex flex-wrap items-center mb-6">
-      <div className="px-4 w-full md:w-10/12">
+    <div className="-mx-4 flex min-h-min items-center mb-6">
+      <div className="px-4 flex min-h-min">
         <h2 className="font-medium mb-1 text-primary-500 text-xl" style={{ color: '#E11D48' }}>
           Top Deals
         </h2>
@@ -30,7 +30,7 @@ export default function AllCars () {
     </div>
     
     {/* Car Grid */}
-    <div className="flex flex-wrap -mx-3 mb-12">
+    <div className="my-8 gap-4 gap-y-8 px-8 grid grid-cols-3 -mx-3 mb-12">
             {cars.length > 0
             ? cars.map(car => <CarItem key={car._id} {...car} />)
             : <h1 className="text-center text-xl font-semibold text-gray-600 mt-8">

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import useForm from '../hooks/useForm.js';
+
 
 function SellCarForm() {
   const carMakes = [
@@ -37,16 +37,7 @@ function SellCarForm() {
     'Blue', 'Brown', 'Green', 'Yellow', 'Orange',
   ];
 
-  const [selectedMake, setSelectedMake] = useState('');
-  const [selectedModel, setSelectedModel] = useState('');
-
-  const handleMakeChange = (event) => {
-    setSelectedMake(event.target.value);
-    setSelectedModel('');
-  };
-
-  // Initialize useForm with initial values
-  const { values, changeHandler, submitHandler } = useForm({
+  const [values, setValues] = useState({
     make: '',
     model: '',
     color: '',
@@ -54,14 +45,34 @@ function SellCarForm() {
     price: '',
     summary: '',
     imageUrl: ''
-  }, (values) => {
-    console.log(values)
-    console.log("form submitted");;
   });
+
+  const [selectedMake, setSelectedMake] = useState('');
+  const [selectedModel, setSelectedModel] = useState('');
+
+  
+  const handleChange = (e) => {
+    setValues({
+      ...values,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleMakeChange = (e) => {
+    setSelectedMake(e.target.value);
+    setValues({ ...values, make: e.target.value, model: '' });
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(values);
+   //Направи си POST заявката тук.
+  };
+
+
 
   return (
     <div className="flex justify-center items-center h-screen bg-gray-100">
-  <form onSubmit={submitHandler} className="bg-white p-8 rounded shadow-md w-full max-w-md">
+  <form onSubmit={handleSubmit} className="bg-white p-8 rounded shadow-md w-full max-w-md">
     <h2 className="text-2xl font-bold mb-6 text-center">Sell Your Car</h2>
     
     <div className="mb-4">
@@ -71,11 +82,8 @@ function SellCarForm() {
       <select
         id="make"
         name="make"
-        value={selectedMake}
-        onChange={(e) => {
-          handleMakeChange(e);
-          changeHandler(e);
-        }}
+        value={values.make}
+        onChange={handleMakeChange}
         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
       >
         <option value="">Select car make</option>
@@ -89,15 +97,16 @@ function SellCarForm() {
       <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="model">
         Model
       </label>
+      
       <select
         id="model"
         name="model"
-        value={selectedModel}
+        className='className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"'
+        value={values.model}
         onChange={(e) => {
           setSelectedModel(e.target.value);
-          changeHandler(e);
+          handleChange(e);
         }}
-        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
         disabled={!selectedMake}
       >
         <option value="">Select car model</option>
@@ -111,12 +120,13 @@ function SellCarForm() {
       <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="color">
         Color
       </label>
+
       <select
         id="color"
         name="color"
         value={values.color}
-        onChange={changeHandler}
-        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+      className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        onChange={handleChange}
       >
         <option value="">Select car color</option>
         {carColors.map((color) => (
@@ -129,12 +139,13 @@ function SellCarForm() {
       <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="year">
         Year of Production
       </label>
+
       <select
         id="year"
         name="year"
         value={values.year}
-        onChange={changeHandler}
-        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+      className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        onChange={handleChange}
       >
         <option value="">Select year</option>
         {Array.from({ length: 2024 - 1980 + 1 }, (_, i) => 1980 + i).map(year => (
@@ -152,7 +163,7 @@ function SellCarForm() {
         name="price"
         type="text"
         value={values.price}
-        onChange={changeHandler}
+        onChange={handleChange}
         placeholder="Enter the price of your car"
         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
       />
@@ -166,7 +177,7 @@ function SellCarForm() {
         id="summary"
         name="summary"
         value={values.summary}
-        onChange={changeHandler}
+        onChange={handleChange}
         placeholder="Enter a brief summary of your car"
         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
       />
@@ -181,7 +192,7 @@ function SellCarForm() {
         name="imageUrl"
         type="text"
         value={values.imageUrl}
-        onChange={changeHandler}
+        onChange={handleChange}
         placeholder="Enter the URL of your car image"
         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
       />

@@ -48,7 +48,7 @@ export default function Home() {
       </div>
     </div>
   </div>
-    <div className="flex flex-wrap -mx-3 mb-12">
+    <div className="my-8 gap-4 gap-y-8 px-8 grid grid-cols-4 md:grid-cols-3 lg:grid-cols-4 min-h-min">
       { latestCars.length > 0
       ? latestCars.map(car => <LatestCar key={car._id} {...car} />)
       : <h1 className="text-center text-xl font-semibold text-gray-600 mt-8">

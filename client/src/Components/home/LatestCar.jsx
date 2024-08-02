@@ -11,14 +11,14 @@ export default function LatestCar ({
         price
 }) {
     return (
-      <div className="flex flex-wrap -mx-3 mb-12">
-      <div className="p-3 w-full md:w-6/12 lg:w-4/12">
+      <div className="flex -mx-3 mb-12">
+      <div className="flex p-3">
       <div className="bg-white border shadow-md text-gray-500">
         
         
           <img
             src={imageUrl}
-            className="hover:opacity-90 w-full"
+            className="hover:opacity-90 w-full h-[200px] object-cover"
           />
         
         
@@ -34,14 +34,12 @@ export default function LatestCar ({
           
           <hr className="border-gray-200 my-4" />
           
-              <div className="flex items-center justify-between">
-                <div className="inline-flex items-center py-1 space-x-1">
-                  </div>
-                  <p className="font-bold text-gray-900">Price {price}</p>
-              </div>
-                <Link to={`/cars/${_id}/details`} className="bg-[#E11D48] text-white px-6 py-2 rounded-md transition duration-400 ease-in-out hover:bg-[#D12D40]">
-                    View Details
-                </Link>
+          <div className="flex justify-between items-center">
+            <span className="font-bold text-gray-900">Price {price}</span>
+            <Link to={`/cars/${_id}/details`} className="bg-[#E11D48] text-white px-6 py-2 rounded-md transition duration-400 ease-in-out hover:bg-[#D12D40]">
+              View Details
+            </Link>
+            </div>
         </div>
       </div>
     </div>
