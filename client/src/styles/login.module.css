@@ -1,0 +1,20 @@
+
+
+.cbtn {
+    width: 100%;
+    background-color: #3B82F6; /* Default Tailwind bg-blue-500 */
+    color: #FFFFFF; /* Default Tailwind text-white */
+    padding: 0.5rem 0; /* Default Tailwind py-2 */
+    border-radius: 0.5rem; /* Default Tailwind rounded-lg */
+    font-weight: 600; /* Default Tailwind font-semibold */
+    outline: none; /* Default Tailwind focus:outline-none */
+  }
+  
+  .cbtn:hover {
+    background-color: #2563EB; /* Default Tailwind hover:bg-blue-600 */
+  }
+  
+  .cbtn:focus {
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5); /* Default Tailwind focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 */
+  }
+  

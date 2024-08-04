@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 function SellCarForm() {
@@ -47,6 +48,7 @@ function SellCarForm() {
     imageUrl: ''
   });
 
+  const navigate = useNavigate()
   const [selectedMake, setSelectedMake] = useState('');
   const [selectedModel, setSelectedModel] = useState('');
 
@@ -62,13 +64,24 @@ function SellCarForm() {
     setSelectedMake(e.target.value);
     setValues({ ...values, make: e.target.value, model: '' });
   };
+  
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(values);
-   //Направи си POST заявката тук.
-  };
+    (async () => {
+      const response = await fetch('http://localhost:3030/jsonstore/cars', {
+        method: 'POST',
+        headers: {'Content-type': 'application/json' },
+        body: JSON.stringify(values),
+      })
+      const result = await response.json()
+     navigate(`/cars/${result._id}/details`)
+      
+      })()
+      }
 
-
+ 
 
   return (
     <div className="flex justify-center items-center h-screen bg-gray-100">
