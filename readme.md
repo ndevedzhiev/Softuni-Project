@@ -29,3 +29,7 @@
 - Create service for nested resourse comments
 - Post comment to server
 - Read comments from server
+
+6. Authentication
+- Authentication API for user session
+- Login

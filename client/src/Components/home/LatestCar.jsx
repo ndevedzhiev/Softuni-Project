@@ -18,15 +18,15 @@ export default function LatestCar ({
         
           <img
             src={imageUrl}
-            className="hover:opacity-90 w-full h-[200px] object-cover"
+            className="hover:opacity-90 w-full h-[400px] object-cover"
           />
         
         
         <div className="p-6">
           <h4 className="font-bold mb-2 text-gray-900 text-xl">
-            <a href="#" className="hover:text-gray-500">
+            <Link to="details" className="hover:text-gray-500">
               {year} {make} {model} in {color}
-            </a>
+            </Link>
           </h4>
           <p className="mb-2 text-sm">
             {summary}

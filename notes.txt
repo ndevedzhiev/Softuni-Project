@@ -113,3 +113,26 @@ useEffect(() => {
 Display articles in the JSX file:
 
 {articles.map(article => <ArticleCard key={article._id} {...article} />)}
+
+
+CONTEXT:
+
+import:
+import { createContext } from 'react
+
+create:
+const UserContext = createContext()
+
+how to use:
+<UserContext.Provider value:{{user: Ivan}}>
+Всичко, което се намира заключено между отварящи и затварящия таг на Context има достъп на данните, които този Context съхранява
+</UserContext.Provider>
+
+във value казваме какво искаме компонентите вътре да достъпят
+когато искаме да достъпим контекста в някой от компонентите, към които сме го подали слагаме import { UseContext } в тях
+
+достъпваме данните по следния начин:
+
+const contextData = UseContext() <<< в скобите казваме кои данни точно искаме да достъпим
+
+Правим си папка Contexts, в нея създаваме контекста и го експортваме

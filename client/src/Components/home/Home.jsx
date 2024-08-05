@@ -11,7 +11,7 @@ export default function Home() {
   useEffect(() => {
       (async () => {
         const result = await carsApi.getAllCars()
-        setLatestCars(result.reverse().slice(0, 3))
+        setLatestCars(result.reverse().slice(0, 4))
     })()
   }, [])
     
