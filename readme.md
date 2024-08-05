@@ -30,6 +30,17 @@
 - Post comment to server
 - Read comments from server
 
-6. Authentication
-- Authentication API for user session
+6. API Hooks
+- Form Hook
+
+7. Authentication
+- Authentication API
+  - Login
+- Authentication State and context
 - Login
+- Register
+- Logout
+
+8. UI Implementation
+- Dynamic navigation
+- Create article - API function and Hook

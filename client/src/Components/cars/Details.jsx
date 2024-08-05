@@ -17,7 +17,7 @@ export default function Details() {
     })();
   }, [carId]);
 
-  // Function to handle new comment submission
+  // Функция, която handle-ва събмита на коментарите
   const handleCommentSubmit = async (e) => {
     e.preventDefault();
 
@@ -30,8 +30,9 @@ export default function Details() {
         text: newComment,
       };
       setComments([...comments, commentWithUsername]);
-      setNewComment(''); // Clear the input field
-      setUsername(''); // Clear the username field
+      //изчистваме инпутите
+      setNewComment('');
+      setUsername(''); 
     }
   };
 

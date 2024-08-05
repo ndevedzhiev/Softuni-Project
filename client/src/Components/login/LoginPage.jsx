@@ -1,7 +1,30 @@
 import { Link } from "react-router-dom"
 import styles from "../../styles/login.module.css"
+import useForm from "../../hooks/useForm.js"
+import { useLogin } from "../../hooks/useAuth.js"
+import { useNavigate } from "react-router-dom"
 
 export default function LoginPage () {
+
+const login = useLogin()
+const navigate = useNavigate()
+//Изполваме useForm custom hook-a
+  const {values, changeHandler, submitHandler} = useForm(
+    { email: '', password: '' },
+    
+    
+    async ({ email, password }) => {
+     try {
+      await login(email, password)
+      navigate('/')
+    } catch (err) {
+      console.log(err.message);
+      
+    }
+    }
+  )
+
+
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-100"
       style={{ 
@@ -15,7 +38,7 @@ export default function LoginPage () {
     <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
       Sign In
     </h2>
-    <form id="registrationForm" noValidate="">
+    <form id="registrationForm" onSubmit={submitHandler}>
       
       <div className="mb-4">
         <label htmlFor="email" className="block text-gray-700 font-semibold mb-2">
@@ -24,14 +47,19 @@ export default function LoginPage () {
         <input
           type="email"
           id="email"
+          name="email"
+          value={values.email}
+          onChange={changeHandler}
           className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
           placeholder="Enter your email"
-          required=""
         />
         <p className="text-red-500 text-sm mt-2 hidden" id="emailError">
           Please enter a valid email.
         </p>
       </div>
+      
+      
+      
       <div className="mb-4">
         <label
           htmlFor="password"
@@ -42,10 +70,12 @@ export default function LoginPage () {
         <input
           type="password"
           id="password"
+          name="password"
+          value={values.password}
+          onChange={changeHandler}
           className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
           placeholder="Enter your password"
-          required=""
-        />
+         />
         <p className="text-red-500 text-sm mt-2 hidden" id="passwordError">
           Password is required.
         </p>
