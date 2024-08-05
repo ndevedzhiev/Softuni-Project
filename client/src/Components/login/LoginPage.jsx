@@ -6,23 +6,20 @@ import { useNavigate } from "react-router-dom"
 
 export default function LoginPage () {
 
+  const initialValues = { email: '', password: '' }
 const login = useLogin()
 const navigate = useNavigate()
+const loginHandler = async ({ email, password }) => {
+  try {
+   await login(email, password)
+   navigate('/')
+ } catch (err) {
+   console.log(err.message);
+   
+ }
+ }
 //Изполваме useForm custom hook-a
-  const {values, changeHandler, submitHandler} = useForm(
-    { email: '', password: '' },
-    
-    
-    async ({ email, password }) => {
-     try {
-      await login(email, password)
-      navigate('/')
-    } catch (err) {
-      console.log(err.message);
-      
-    }
-    }
-  )
+  const {values, changeHandler, submitHandler} = useForm(initialValues, loginHandler)
 
 
     return (
