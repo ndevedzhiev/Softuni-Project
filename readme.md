@@ -36,10 +36,11 @@
 7. Authentication
 - Authentication API
   - Login
+  - Register
+  - Logout
 - Authentication State and context
-- Login
-- Register
-- Logout
+ - Token management
+ - Authorized Requests
 
 8. UI Implementation
 - Dynamic navigation

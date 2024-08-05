@@ -12,12 +12,24 @@ import Partners from "../Components/Partners.jsx";
 import Details from "../Components/cars/Details.jsx";
 import NotFound from "../Components/NotFound.jsx";
 import AllCars from "../Components/cars/AllCars.jsx";
-
-
+import { useState } from "react";
+import { authContext } from "../contexts/authContext.js";
 
 export default function Layout () {
+const [authState, seAuthState] = useState({})
 
+const changeAuthState = (state) => {
+  seAuthState(state)
+}
+
+const contextData = {
+  email: authState.email,
+  accessToken: authState.accessToken,
+  isAuthenticated: !!authState.email,
+  changeAuthState
+}
 return (
+  <authContext.Provider value={contextData}>
       <>
     <Header />
     <main>
@@ -37,5 +49,6 @@ return (
     </main>
      <Footer />
       </>
+  </authContext.Provider>
   );
 };
