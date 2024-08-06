@@ -41,6 +41,7 @@
 - Authentication State and context
  - Token management
  - Authorized Requests
+ - Add register validation
 
 8. UI Implementation
 - Dynamic navigation

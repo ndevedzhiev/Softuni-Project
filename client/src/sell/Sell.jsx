@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import backgroundImage from './backgroundImage.jpg';
 
 
 function SellCarForm() {
@@ -84,7 +85,13 @@ function SellCarForm() {
  
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100">
+    <div className="flex justify-center items-center h-screen bg-gray-100"
+    style={{ 
+      backgroundImage: `url(${backgroundImage})`, 
+      backgroundRepeat: 'no-repeat', 
+      backgroundSize: 'cover', 
+      backgroundPosition: 'center',
+    }}>
   <form onSubmit={handleSubmit} className="bg-white p-8 rounded shadow-md w-full max-w-md">
     <h2 className="text-2xl font-bold mb-6 text-center">Sell Your Car</h2>
     
