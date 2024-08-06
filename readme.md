@@ -19,7 +19,6 @@
 - Add car API
 - Create json file with the information
 
-
 4. Page implementation
 - Game list
 - Details (Link and Route, API Function, Comments)
@@ -32,6 +31,7 @@
 
 6. API Hooks
 - Form Hook
+- Auth Hook
 
 7. Authentication
 - Authentication API
