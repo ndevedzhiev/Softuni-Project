@@ -20,6 +20,7 @@ export default function Layout () {
 const [authState, seAuthState] = useState({})
 
 const changeAuthState = (state) => {
+  localStorage.setItem('accessToken', state.accessToken)
   seAuthState(state)
 }
 

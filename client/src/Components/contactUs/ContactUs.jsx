@@ -61,7 +61,7 @@ export default function ContactUs() {
                       Email
                     </h2>
                     <h2 className="text-gray-800 text-base md:text-lg leading-8 tracking-wider mt-2">
-                      alphasquad@example.com
+                      nikoladevedjiev@gmail.com
                     </h2>
                   </div>
                 </div>
@@ -84,7 +84,7 @@ export default function ContactUs() {
                   <input
                     className="mt-3 text-base dark:bg-gray-800 border-2 w-11/12 lg:w-full xl:w-10/12 hover:border-indigo-600 focus:border-indigo-600 focus:outline-none border-black py-5 pl-4 text-gray-800 dark:text-white"
                     type="text"
-                    placeholder="Justin Timberlake"
+                    placeholder="John Doe"
                     aria-label="enter your name input"
                   />
                 </div>
