@@ -78,7 +78,6 @@ export default function About () {
       </div>
     </div>
   </div>
-  <button className={styles['btn']}>Button</button>
 </div>
 
     )
