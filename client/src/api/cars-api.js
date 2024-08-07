@@ -14,10 +14,13 @@ export const getAllCars = async () => {
 
 export const getOne = (carId) => request.get(`${baseUrl}/${carId}`);
 
+export const create = (carData) => request.post(`${baseUrl}`, carData)
+
 const carsApi = {
     
     getAllCars,
-    getOne
+    getOne, 
+    create
     
 }
 export default carsApi

@@ -1413,7 +1413,19 @@
                       "price": "$15,000"
                   
                  
-              }
+              },
+              "e09e9802-61e2-4732-9359-6533ded30c3b": {
+                "imageUrl": "https://bluesky.cdn.imgeng.in/cogstock-images/c99403a8-9c6a-4388-b0fb-679c54c5b2ab.jpg?imgeng=/w_960/",
+                "make": "Mercedes-Benz",
+                "model": "CLK",
+                "color": "Black",
+                "year": "2009",
+                "summary": "The 2008 Mercedes CLK is a luxury coupe that exudes elegance and performance. Known for its sleek design, powerful engine options, and top-notch interior quality, the CLK offers a refined driving experience.",
+                "_id": "e09e9802-61e2-4732-9359-6533dedb0c3b",
+                "price": "$15,000"
+            
+           
+        }
         },
     	teams: {
     		"34a1cab1-81f1-47e5-aec3-ab6c9810efe1": {
