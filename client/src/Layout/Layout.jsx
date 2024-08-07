@@ -14,44 +14,51 @@ import Partners from "../Components/partners/Partners.jsx";
 import Details from "../Components/cars/Details.jsx";
 import NotFound from "../Components/error pages/NotFound.jsx";
 import AllCars from "../Components/cars/AllCars.jsx";
+import Logout from "../Components/logout/Logout.jsx";
 
 
-export default function Layout () {
-const [authState, seAuthState] = useState({})
+export default function Layout() {
+  const [authState, setAuthState] = useState({});
 
-const changeAuthState = (state) => {
-  localStorage.setItem('accessToken', state.accessToken)
-  seAuthState(state)
-}
+  const changeAuthState = (state) => {
+    if (state.accessToken) {
+      localStorage.setItem('accessToken', state.accessToken);
+    } else {
+      localStorage.removeItem('accessToken');
+    }
+    setAuthState(state);
+  };
 
-const contextData = {
-  userId: authState._id,
-  email: authState.email,
-  accessToken: authState.accessToken,
-  isAuthenticated: !!authState.email,
-  changeAuthState
-}
-return (
-  <authContext.Provider value={contextData}>
+  const contextData = {
+    userId: authState._id,
+    email: authState.email,
+    accessToken: authState.accessToken,
+    isAuthenticated: !!authState.email,
+    changeAuthState
+  };
+
+  return (
+    <authContext.Provider value={contextData}>
       <>
-    <Header />
-    <main>
+        <Header />
+        <main>
           <Routes>
-              <Route path="/about" element={<About />}/>
-              <Route path="/" element={<Home />}/>
-              <Route path="/login" element={<LoginPage />}/>
-              <Route path="/register" element={<RegisterPage />}/>
-              <Route path="/contact" element={<ContactUs />}/>
-              <Route path="/sell" element={<Sell />}/>
-              <Route path="/partners" element={<Partners />}/>
-              <Route path="/allcars" element={<AllCars />}/>
-              <Route path="/cars/:carId/details" element={<Details />}/>
-              <Route path="/details" element={<Details />}/>
-              <Route path="*" element={<NotFound />}/>
-         </Routes>
-    </main>
-     <Footer />
+            <Route path="/about" element={<About />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/contact" element={<ContactUs />} />
+            <Route path="/sell" element={<Sell />} />
+            <Route path="/partners" element={<Partners />} />
+            <Route path="/allcars" element={<AllCars />} />
+            <Route path="/cars/:carId/details" element={<Details />} />
+            <Route path="/details" element={<Details />} />
+            <Route path="*" element={<NotFound />} />
+            <Route path="/logout" element={<Logout />} />
+          </Routes>
+        </main>
+        <Footer />
       </>
-  </authContext.Provider>
+    </authContext.Provider>
   );
 };

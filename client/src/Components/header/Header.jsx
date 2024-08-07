@@ -3,7 +3,12 @@ import { Link, NavLink } from "react-router-dom";
 import { authContext } from "../../contexts/authContext.js";
 
 export default function Header() {
-  const { isAuthenticated, logout } = useContext(authContext); // assuming logout function is provided by authContext
+  const { isAuthenticated, changeAuthState } = useContext(authContext);
+
+  const handleLogout = () => {
+    changeAuthState({});
+    localStorage.removeItem('accessToken');
+  };
 
   return (
     <header>
@@ -26,7 +31,7 @@ export default function Header() {
                 <NavLink
                   to="/login"
                   className="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"
-                  style={({ isActive }) => (isActive ? { color: "#E11D48" } : {})}
+                  style={({ isActive }) => (isActive ? { color: '#E11D48' } : {})}
                 >
                   Log in
                 </NavLink>
@@ -34,7 +39,7 @@ export default function Header() {
                 <NavLink
                   to="/register"
                   className="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"
-                  style={({ isActive }) => (isActive ? { color: "#E11D48" } : {})}
+                  style={({ isActive }) => (isActive ? { color: '#E11D48' } : {})}
                 >
                   Sign Up
                 </NavLink>
@@ -42,7 +47,7 @@ export default function Header() {
             )}
             {isAuthenticated && (
               <button
-                onClick={logout}
+                onClick={handleLogout}
                 className="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"
               >
                 Logout
@@ -70,7 +75,7 @@ export default function Header() {
                   <NavLink
                     to="/sell"
                     className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
-                    style={({ isActive }) => (isActive ? { color: "#E11D48" } : {})}
+                    style={({ isActive }) => (isActive ? { color: '#E11D48' } : {})}
                   >
                     Sell Your Car
                   </NavLink>
@@ -81,7 +86,7 @@ export default function Header() {
                 <NavLink
                   to="/allcars"
                   className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
-                  style={({ isActive }) => (isActive ? { color: "#E11D48" } : {})}
+                  style={({ isActive }) => (isActive ? { color: '#E11D48' } : {})}
                 >
                   Top Deals
                 </NavLink>
@@ -91,7 +96,7 @@ export default function Header() {
                 <NavLink
                   to="/partners"
                   className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
-                  style={({ isActive }) => (isActive ? { color: "#E11D48" } : {})}
+                  style={({ isActive }) => (isActive ? { color: '#E11D48' } : {})}
                 >
                   Our Partners
                 </NavLink>
@@ -101,7 +106,7 @@ export default function Header() {
                 <NavLink
                   to="/about"
                   className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
-                  style={({ isActive }) => (isActive ? { color: "#E11D48" } : {})}
+                  style={({ isActive }) => (isActive ? { color: '#E11D48' } : {})}
                 >
                   About Us
                 </NavLink>
@@ -111,7 +116,7 @@ export default function Header() {
                 <NavLink
                   to="/contact"
                   className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
-                  style={({ isActive }) => (isActive ? { color: "#E11D48" } : {})}
+                  style={({ isActive }) => (isActive ? { color: '#E11D48' } : {})}
                 >
                   Contact
                 </NavLink>

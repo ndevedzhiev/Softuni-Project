@@ -58,7 +58,7 @@ export default function About () {
         <div className="p-4 pb-6 flex justify-center flex-col items-center">
           <img
             className="md:block hidden"
-            src="https://static.vecteezy.com/system/resources/previews/006/948/116/non_2x/portrait-of-smiling-male-mechanic-technician-holding-wrench-in-arms-crossed-at-auto-garage-repair-and-maintenance-career-after-service-checking-car-damage-broken-part-free-photo.jpg"
+            src="https://img.freepik.com/free-photo/satisfied-male-customer-holding-car-key-auto-repair-shop-looking-camera_637285-7746.jpg?t=st=1723044699~exp=1723048299~hmac=c39eb0a107d3b1c060db8a2dd753b888ff38d312dd5043decc3b079c13cf51d4&w=1380"
             alt="Liam featued Image"
           />
           <p className="font-medium text-xl leading-5 text-gray-800 dark:text-white mt-4">
