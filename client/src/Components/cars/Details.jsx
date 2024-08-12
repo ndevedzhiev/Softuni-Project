@@ -13,6 +13,7 @@ export default function Details() {
   const { carId } = useParams();
   const [comments, setComments] = useGetAllComments(carId)
   const createComment = useCreateComment()
+  const {email} = useAuthContext()
   const [car] = useGetOneCar(carId)
   const { isAuthenticated } = useAuthContext()
   const { 
@@ -21,7 +22,11 @@ export default function Details() {
     values,
    } = useForm(initialValues, async ({ comment }) => {
     try {
-     const newComment = await createComment(carId, comment)
+     const newComment = {
+      text: comment,
+      author: { email },
+    };
+     await createComment(carId, comment)
      setComments(oldComments => [...oldComments, newComment])
     } catch (err) {
       console.log(err.message);
@@ -61,28 +66,32 @@ export default function Details() {
               <p className="text-gray-500 text-base font-normal mb-5">
                 {car.summary}
               </p>
-              <div className="flex items-center gap-3">
-                <button
-                  className="text-center w-full px-5 py-4 rounded-[100px] bg-indigo-600 flex items-center justify-center font-semibold text-lg text-white shadow-sm transition-all duration-500 hover:bg-indigo-700 hover:shadow-indigo-400"
-                  style={{ backgroundColor: '#E11D48' }}
-                >
-                  Contact Seller
-                </button>
-
-                <button
-                  className="text-center w-full px-5 py-4 rounded-[100px] bg-indigo-600 flex items-center justify-center font-semibold text-lg text-white shadow-sm transition-all duration-500 hover:bg-indigo-700 hover:shadow-indigo-400"
-                  style={{ backgroundColor: '#E11D48' }}
-                >
-                  Edit
-                </button>
-                <button
-                  className="text-center w-full px-5 py-4 rounded-[100px] bg-indigo-600 flex items-center justify-center font-semibold text-lg text-white shadow-sm transition-all duration-500 hover:bg-indigo-700 hover:shadow-indigo-400"
-                  style={{ backgroundColor: '#E11D48' }}
-                >
-                  Delete
-                </button>
-              </div>
               
+              {isAuthenticated && (
+                <div className="flex space-x-4">
+                  <button
+                    className="w-full px-6 py-3 rounded-full bg-red-600 text-white font-semibold text-lg shadow-md transition-transform transform hover:scale-105 hover:bg-red-700"
+                    style={{ backgroundColor: '#E11D48' }}
+                  >
+                    Contact Seller
+                  </button>
+
+                  <button
+                    className="w-full px-6 py-3 rounded-full bg-red-600 text-white font-semibold text-lg shadow-md transition-transform transform hover:scale-105 hover:bg-red-700"
+                    style={{ backgroundColor: '#E11D48' }}
+                  >
+                    Edit
+                  </button>
+
+                  <button
+                    className="w-full px-6 py-3 rounded-full bg-red-600 text-white font-semibold text-lg shadow-md transition-transform transform hover:scale-105 hover:bg-red-700"
+                    style={{ backgroundColor: '#E11D48' }}
+                  >
+                    Delete
+                  </button>
+                </div>
+              )}
+
               
               
               {isAuthenticated && (
@@ -108,18 +117,23 @@ export default function Details() {
                   </article>
               )}
 
-              <div className="p-4 border border-gray-200 rounded-md shadow-sm">
-                <h2>Comments:</h2>
-                  <ul>
-                    {comments.map(comment => (
-                      <li key={comment._id}>
-                      <p>{comment.author.email}: {comment.text}</p>
+              <div className="mt-10 p-6 border border-gray-300 rounded-lg shadow-lg bg-white">
+                <h2 className="text-xl font-semibold text-gray-800 mb-4">Comments:</h2>
+                <ul className="space-y-4">
+                  {comments.length > 0 ? (
+                    comments.map(comment => (
+                      <li key={comment._id} className="p-4 border border-gray-200 rounded-md shadow-sm bg-gray-50">
+                        <p className="text-gray-700">
+                          <span className="font-medium text-gray-900">{comment.author?.email || 'Unknown Author'}:</span>
+                          <span className="ml-2">{comment.text}</span>
+                        </p>
                       </li>
-                    ))}
-                  </ul>
+                    ))
+                  ) : (
+                    <p className="text-gray-500">No comments yet.</p>
+                  )}
+                </ul>
               </div>
-
-            {comments.length === 0 && <p> No Comments Yet </p>}
             </div>
           </div>
         </div>
