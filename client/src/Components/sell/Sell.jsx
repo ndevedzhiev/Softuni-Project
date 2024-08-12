@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import backgroundImage from './backgroundImage.jpg';
+import requester from '../../api/requester.js';
+
 
 
 function SellCarForm() {
@@ -48,7 +50,7 @@ function SellCarForm() {
     summary: '',
     imageUrl: ''
   });
-
+  
   const navigate = useNavigate()
   const [selectedMake, setSelectedMake] = useState('');
   const [selectedModel, setSelectedModel] = useState('');
@@ -67,20 +69,18 @@ function SellCarForm() {
   };
   
   
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(values);
-    (async () => {
-      const response = await fetch('http://localhost:3030/jsonstore/cars', {
-        method: 'POST',
-        headers: {'Content-type': 'application/json' },
-        body: JSON.stringify(values),
-      })
-      const result = await response.json()
-     navigate(`/cars/${result._id}/details`)
+
+    try {
+        const result = await requester.post('http://localhost:3030/data/cars', values);
+        navigate(`/cars/${result._id}/details`);
+    } catch (error) {
+        console.error('Failed to create car:', error);
       
-      })()
-      }
+    }
+};
 
  
 

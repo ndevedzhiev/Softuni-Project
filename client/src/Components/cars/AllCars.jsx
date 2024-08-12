@@ -1,20 +1,10 @@
-import { useEffect, useState } from "react"
-import * as carsApi from '../../api/cars-api.js'
+import { useGetAllCars } from "../../hooks/useCars.js"
 import CarItem from "./Car-item.jsx"
 
-
 export default function AllCars () {
+  const [cars, setCars] = useGetAllCars()
 
-  const [cars, setCars] = useState([])
-  
-  useEffect(() => {
-      carsApi.getAllCars()
-    .then(result =>  setCars(result))
-    
-  }, [])
-  
-
-    return (
+return (
       <section className="bg-gray-50 py-24">
   <div className="container mx-auto px-4">
     <div className="-mx-4 flex min-h-min items-center mb-6">
