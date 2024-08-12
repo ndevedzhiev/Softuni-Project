@@ -113,8 +113,7 @@ export default function Details() {
                   <ul>
                     {comments.map(comment => (
                       <li key={comment._id}>
-                        <p>Username: {comment.carId}</p>
-                      <p> Comment: {comment.text}</p>
+                      <p>{comment.author.email}: {comment.text}</p>
                       </li>
                     ))}
                   </ul>

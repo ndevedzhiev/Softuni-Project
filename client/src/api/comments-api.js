@@ -6,7 +6,8 @@ const create = (carId, text) => requester.post(baseUrl, { carId, text })
 
 const getAllComments = (carId) => {
     const params = new URLSearchParams({
-        where: `carId="${carId}"`
+        where: `carId="${carId}"`,
+        load: `author=_ownerId:users`
     })
     return requester.get(`${baseUrl}?${params.toString()}`)
 }
