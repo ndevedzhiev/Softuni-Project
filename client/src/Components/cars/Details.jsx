@@ -4,11 +4,12 @@ import { useParams } from "react-router-dom";
 import commentsApi from "../../api/comments-api.js";
 
 export default function Details() {
-  const [car, setCar] = useState({});
+  const { carId } = useParams();
   const [comments, setComments] = useState([]);
+  const [car, setCar] = useState({});
   const [newComment, setNewComment] = useState('');
   const [username, setUsername] = useState('');
-  const { carId } = useParams();
+  
 
   useEffect(() => {
     (async () => {
@@ -16,6 +17,8 @@ export default function Details() {
       setCar(result);
     })();
   }, [carId]);
+
+ 
 
   // Функция, която handle-ва събмита на коментарите
   const handleCommentSubmit = async (e) => {
@@ -73,8 +76,22 @@ export default function Details() {
                 >
                   Contact Seller
                 </button>
+
+                <button
+                  className="text-center w-full px-5 py-4 rounded-[100px] bg-indigo-600 flex items-center justify-center font-semibold text-lg text-white shadow-sm transition-all duration-500 hover:bg-indigo-700 hover:shadow-indigo-400"
+                  style={{ backgroundColor: '#E11D48' }}
+                >
+                  Edit
+                </button>
+                <button
+                  className="text-center w-full px-5 py-4 rounded-[100px] bg-indigo-600 flex items-center justify-center font-semibold text-lg text-white shadow-sm transition-all duration-500 hover:bg-indigo-700 hover:shadow-indigo-400"
+                  style={{ backgroundColor: '#E11D48' }}
+                >
+                  Delete
+                </button>
               </div>
 
+             
               {/* Comment Section */}
               <div className="mt-10 w-full max-w-xl mx-auto">
                 <h3 className="text-2xl font-bold mb-4">Comments</h3>

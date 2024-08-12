@@ -1,9 +1,9 @@
-import { useContext } from "react";
+
 import { Link, NavLink } from "react-router-dom";
-import { authContext } from "../../contexts/authContext.js";
+import { useAuthContext } from "../../contexts/AuthContext.jsx";
 
 export default function Header() {
-  const { isAuthenticated, changeAuthState } = useContext(authContext);
+  const { isAuthenticated, changeAuthState } = useAuthContext()
 
   const handleLogout = () => {
     changeAuthState({});

@@ -1,7 +1,5 @@
 import { Routes, Route } from "react-router-dom"
-import { useState } from "react";
-import { authContext } from "../contexts/authContext.js";
-
+import AuthContextProvider from "../contexts/AuthContext.jsx";
 import Header from "../Components/header/Header.jsx";
 import Footer from "../Components/footer/Footer.jsx";
 import LoginPage from "../Components/login/LoginPage.jsx";
@@ -18,27 +16,9 @@ import Logout from "../Components/logout/Logout.jsx";
 
 
 export default function Layout() {
-  const [authState, setAuthState] = useState({});
-
-  const changeAuthState = (state) => {
-    if (state.accessToken) {
-      localStorage.setItem('accessToken', state.accessToken);
-    } else {
-      localStorage.removeItem('accessToken');
-    }
-    setAuthState(state);
-  };
-
-  const contextData = {
-    userId: authState._id,
-    email: authState.email,
-    accessToken: authState.accessToken,
-    isAuthenticated: !!authState.email,
-    changeAuthState
-  };
 
   return (
-    <authContext.Provider value={contextData}>
+    <AuthContextProvider>
       <>
         <Header />
         <main>
@@ -59,6 +39,6 @@ export default function Layout() {
         </main>
         <Footer />
       </>
-    </authContext.Provider>
+    </AuthContextProvider>
   );
 };
