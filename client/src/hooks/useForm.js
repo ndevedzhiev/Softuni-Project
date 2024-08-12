@@ -16,7 +16,8 @@ export default function useForm (initialValues, submitCallback) {
 
     const submitHandler = (e) => {
        e.preventDefault() 
-       submitCallback(values)
+        submitCallback(values)
+        setValues(initialValues)
     }
 
     return {

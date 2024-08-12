@@ -1,36 +1,35 @@
-import { useState } from "react";
 import { useParams } from "react-router-dom";
-import commentsApi from "../../api/comments-api.js";
 import { useGetOneCar } from "../../hooks/useCars.js";
+import useForm from "../../hooks/useForm.js";
+import { useGetAllComments, useCreateComment } from "../../hooks/useComments.js"
+import { useAuthContext } from "../../contexts/AuthContext.jsx";
+
+const initialValues = {
+  comment: ''
+}
 
 export default function Details() {
   
   const { carId } = useParams();
-  const [car, setCar] = useGetOneCar(carId)
-  const [comments, setComments] = useState([]);
-  const [newComment, setNewComment] = useState('');
-  const [username, setUsername] = useState('');
-  
-  
-
- // Функция, която handle-ва събмита на коментарите
-  const handleCommentSubmit = async (e) => {
-    e.preventDefault();
-
-    await commentsApi.create(carId, username, comments)
-
-    if (newComment.trim() && username.trim()) {
-      e.preventDefault()
-      const commentWithUsername = {
-        username,
-        text: newComment,
-      };
-      setComments([...comments, commentWithUsername]);
-      //изчистваме инпутите
-      setNewComment('');
-      setUsername(''); 
+  const [comments, setComments] = useGetAllComments(carId)
+  const createComment = useCreateComment()
+  const [car] = useGetOneCar(carId)
+  const { isAuthenticated } = useAuthContext()
+  const { 
+    changeHandler, 
+    submitHandler, 
+    values,
+   } = useForm(initialValues, async ({ comment }) => {
+    try {
+     const newComment = await createComment(carId, comment)
+     setComments(oldComments => [...oldComments, newComment])
+    } catch (err) {
+      console.log(err.message);
+      
     }
-  };
+    
+  })
+  
 
   return (
     <section className="relative mt-20 ml-20 pl-20">
@@ -83,54 +82,45 @@ export default function Details() {
                   Delete
                 </button>
               </div>
+              
+              
+              
+              {isAuthenticated && (
+                    <article className="p-4">
+                      <label className="block text-lg mb-2">Add new comment :</label>
+                        <form className="flex flex-col" onSubmit={submitHandler}>
+                            <textarea
+                              name="comment"
+                              placeholder="Comment..."
+                              onChange={changeHandler}
+                              value={values.comment}
+                              className="mb-4 p-2 border rounded"
+                            ></textarea>
+                            
+                            <input
+                              style={{ backgroundColor: '#E11D48' }}
+                              className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 cursor-pointer"
+                              type="submit"
+                              value="Add Comment"
+                            />
+                      </form>
+                      
+                  </article>
+              )}
 
-             
-              {/* Comment Section */}
-              <div className="mt-10 w-full max-w-xl mx-auto">
-                <h3 className="text-2xl font-bold mb-4">Comments</h3>
-
-                <form onSubmit={handleCommentSubmit} className="mb-6">
-                  <div className="mb-4">
-                    <input
-                    name="username"
-                      type="text"
-                      value={username}
-                      onChange={(e) => setUsername(e.target.value)}
-                      placeholder="Username"
-                      className="w-full border border-gray-300 rounded p-3 mb-4 focus:outline-none focus:border-indigo-500"
-                    />
-                  </div>
-                  <textarea
-                    name="comment"
-                    value={newComment}
-                    onChange={(e) => setNewComment(e.target.value)}
-                    placeholder="Add a comment..."
-                    className="w-full h-24 border border-gray-300 rounded p-3 mb-4 focus:outline-none focus:border-indigo-500"
-                  />
-                  <button
-                    type="submit"
-                    className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition duration-300"
-                    style={{ backgroundColor: '#E11D48' }}
-                  >
-                    Submit
-                  </button>
-                </form>
-
-                {/* Display Comments */}
-                <div className="space-y-4">
-                  {comments.length > 0 ? (
-                    comments.map((comment, index) => (
-                      <div key={index} className="p-4 border border-gray-200 rounded">
-                        <p className="font-bold text-gray-700">{comment.username}</p>
-                        <p className="text-gray-700">{comment.text}</p>
-                      </div>
-                    ))
-                  ) : (
-                    <p className="text-gray-500">No comments yet.</p>
-                  )}
-                </div>
+              <div className="p-4 border border-gray-200 rounded-md shadow-sm">
+                <h2>Comments:</h2>
+                  <ul>
+                    {comments.map(comment => (
+                      <li key={comment._id}>
+                        <p>Username: {comment.carId}</p>
+                      <p> Comment: {comment.text}</p>
+                      </li>
+                    ))}
+                  </ul>
               </div>
 
+            {comments.length === 0 && <p> No Comments Yet </p>}
             </div>
           </div>
         </div>
