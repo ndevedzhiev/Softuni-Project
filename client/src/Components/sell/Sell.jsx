@@ -3,8 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import backgroundImage from './backgroundImage.jpg';
 import requester from '../../api/requester.js';
 
-
-
 function SellCarForm() {
   const carMakes = [
     'Toyota', 'Honda', 'Ford', 'Chevrolet', 'Nissan',
@@ -51,11 +49,11 @@ function SellCarForm() {
     imageUrl: ''
   });
   
-  const navigate = useNavigate()
+  const [errors, setErrors] = useState({});
+  const navigate = useNavigate();
   const [selectedMake, setSelectedMake] = useState('');
   const [selectedModel, setSelectedModel] = useState('');
 
-  
   const handleChange = (e) => {
     setValues({
       ...values,
@@ -67,22 +65,32 @@ function SellCarForm() {
     setSelectedMake(e.target.value);
     setValues({ ...values, make: e.target.value, model: '' });
   };
-  
-  
+
+  const validateForm = () => {
+    const newErrors = {};
+    for (const key in values) {
+      if (values[key] === '') {
+        newErrors[key] = 'This field is required';
+      }
+    }
+    return newErrors;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(values);
-
+    const formErrors = validateForm();
+    if (Object.keys(formErrors).length > 0) {
+      setErrors(formErrors);
+      return;
+    }
+    
     try {
         const result = await requester.post('http://localhost:3030/data/cars', values);
         navigate(`/cars/${result._id}/details`);
     } catch (error) {
         console.error('Failed to create car:', error);
-      
     }
-};
-
- 
+  };
 
   return (
     <div className="flex justify-center items-center h-screen bg-gray-100"
@@ -92,144 +100,147 @@ function SellCarForm() {
       backgroundSize: 'cover', 
       backgroundPosition: 'center',
     }}>
-  <form onSubmit={handleSubmit} className="bg-white p-8 rounded shadow-md w-full max-w-md">
-    <h2 className="text-2xl font-bold mb-6 text-center">Sell Your Car</h2>
-    
-    <div className="mb-4">
-      <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="make">
-        Make
-      </label>
-      <select
-        id="make"
-        name="make"
-        value={values.make}
-        onChange={handleMakeChange}
-        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-      >
-        <option value="">Select car make</option>
-        {carMakes.map((make) => (
-          <option key={make} value={make}>{make}</option>
-        ))}
-      </select>
+      <form onSubmit={handleSubmit} className="bg-white p-8 rounded shadow-md w-full max-w-md">
+        <h2 className="text-2xl font-bold mb-6 text-center">Sell Your Car</h2>
+        
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="make">
+            Make
+          </label>
+          <select
+            id="make"
+            name="make"
+            value={values.make}
+            onChange={handleMakeChange}
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          >
+            <option value="">Select car make</option>
+            {carMakes.map((make) => (
+              <option key={make} value={make}>{make}</option>
+            ))}
+          </select>
+          {errors.make && <p className="text-red-500 text-xs italic">{errors.make}</p>}
+        </div>
+
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="model">
+            Model
+          </label>
+          <select
+            id="model"
+            name="model"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            value={values.model}
+            onChange={(e) => {
+              setSelectedModel(e.target.value);
+              handleChange(e);
+            }}
+            disabled={!selectedMake}
+          >
+            <option value="">Select car model</option>
+            {selectedMake && carModels[selectedMake].map((model) => (
+              <option key={model} value={model}>{model}</option>
+            ))}
+          </select>
+          {errors.model && <p className="text-red-500 text-xs italic">{errors.model}</p>}
+        </div>
+
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="color">
+            Color
+          </label>
+          <select
+            id="color"
+            name="color"
+            value={values.color}
+            onChange={handleChange}
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          >
+            <option value="">Select car color</option>
+            {carColors.map((color) => (
+              <option key={color} value={color}>{color}</option>
+            ))}
+          </select>
+          {errors.color && <p className="text-red-500 text-xs italic">{errors.color}</p>}
+        </div>
+
+        <div className="mb-6">
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="year">
+            Year of Production
+          </label>
+          <select
+            id="year"
+            name="year"
+            value={values.year}
+            onChange={handleChange}
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          >
+            <option value="">Select year</option>
+            {Array.from({ length: 2024 - 1980 + 1 }, (_, i) => 1980 + i).map(year => (
+              <option key={year} value={year}>{year}</option>
+            ))}
+          </select>
+          {errors.year && <p className="text-red-500 text-xs italic">{errors.year}</p>}
+        </div>
+
+        <div className="mb-6">
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="price">
+            Price
+          </label>
+          <input
+            id="price"
+            name="price"
+            type="text"
+            value={values.price}
+            onChange={handleChange}
+            placeholder="Enter the price of your car"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          />
+          {errors.price && <p className="text-red-500 text-xs italic">{errors.price}</p>}
+        </div>
+
+        <div className="mb-6">
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="summary">
+            Summary
+          </label>
+          <textarea
+            id="summary"
+            name="summary"
+            value={values.summary}
+            onChange={handleChange}
+            placeholder="Enter a brief summary of your car"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          />
+          {errors.summary && <p className="text-red-500 text-xs italic">{errors.summary}</p>}
+        </div>
+
+        <div className="mb-6">
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="imageUrl">
+            Image URL
+          </label>
+          <input
+            id="imageUrl"
+            name="imageUrl"
+            type="text"
+            value={values.imageUrl}
+            onChange={handleChange}
+            placeholder="Enter the URL of your car image"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          />
+          {errors.imageUrl && <p className="text-red-500 text-xs italic">{errors.imageUrl}</p>}
+        </div>
+
+        <div className="flex items-center justify-between">
+          <button
+            type="submit"
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            style={{backgroundColor: '#E11D48'}}
+          >
+            Create
+          </button>
+        </div>
+      </form>
     </div>
-
-    <div className="mb-4">
-      <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="model">
-        Model
-      </label>
-      
-      <select
-        id="model"
-        name="model"
-        className='className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"'
-        value={values.model}
-        onChange={(e) => {
-          setSelectedModel(e.target.value);
-          handleChange(e);
-        }}
-        disabled={!selectedMake}
-      >
-        <option value="">Select car model</option>
-        {selectedMake && carModels[selectedMake].map((model) => (
-          <option key={model} value={model}>{model}</option>
-        ))}
-      </select>
-    </div>
-
-    <div className="mb-4">
-      <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="color">
-        Color
-      </label>
-
-      <select
-        id="color"
-        name="color"
-        value={values.color}
-      className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-        onChange={handleChange}
-      >
-        <option value="">Select car color</option>
-        {carColors.map((color) => (
-          <option key={color} value={color}>{color}</option>
-        ))}
-      </select>
-    </div>
-
-    <div className="mb-6">
-      <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="year">
-        Year of Production
-      </label>
-
-      <select
-        id="year"
-        name="year"
-        value={values.year}
-      className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-        onChange={handleChange}
-      >
-        <option value="">Select year</option>
-        {Array.from({ length: 2024 - 1980 + 1 }, (_, i) => 1980 + i).map(year => (
-          <option key={year} value={year}>{year}</option>
-        ))}
-      </select>
-    </div>
-
-    <div className="mb-6">
-      <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="price">
-        Price
-      </label>
-      <input
-        id="price"
-        name="price"
-        type="text"
-        value={values.price}
-        onChange={handleChange}
-        placeholder="Enter the price of your car"
-        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-      />
-    </div>
-
-    <div className="mb-6">
-      <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="summary">
-        Summary
-      </label>
-      <textarea
-        id="summary"
-        name="summary"
-        value={values.summary}
-        onChange={handleChange}
-        placeholder="Enter a brief summary of your car"
-        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-      />
-    </div>
-
-    <div className="mb-6">
-      <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="imageUrl">
-        Image URL
-      </label>
-      <input
-        id="imageUrl"
-        name="imageUrl"
-        type="text"
-        value={values.imageUrl}
-        onChange={handleChange}
-        placeholder="Enter the URL of your car image"
-        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-      />
-    </div>
-
-    <div className="flex items-center justify-between">
-      <button
-        type="submit"
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-        style={{backgroundColor: '#E11D48'}}
-      >
-        Create
-      </button>
-    </div>
-  </form>
-</div>
-
   );
 }
 
