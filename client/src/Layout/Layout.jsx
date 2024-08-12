@@ -13,6 +13,7 @@ import Details from "../Components/cars/Details.jsx";
 import NotFound from "../Components/error pages/NotFound.jsx";
 import AllCars from "../Components/cars/AllCars.jsx";
 import Logout from "../Components/logout/Logout.jsx";
+import EditCarForm from "../Components/cars/EditCar.jsx";
 
 
 export default function Layout() {
@@ -23,6 +24,8 @@ export default function Layout() {
         <Header />
         <main>
           <Routes>
+            
+            <Route path="/cars/:carId/edit" element={<EditCarForm />}/>
             <Route path="/about" element={<About />} />
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<LoginPage />} />
