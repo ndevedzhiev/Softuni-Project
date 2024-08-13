@@ -19,6 +19,7 @@ export default function Details() {
   const {email, userId} = useAuthContext()
   const [car] = useGetOneCar(carId)
   const { isAuthenticated } = useAuthContext()
+  const navigate = useNavigate()
   const { 
     changeHandler, 
     submitHandler, 
@@ -39,7 +40,7 @@ export default function Details() {
 const deleteHandler = async () => {
   try {
       await carsApi.remove(carId)
-      Navigate('/allcars')
+      navigate('/allcars')
   } catch (error) {
       console.error("Failed to delete car:", error);
   }
