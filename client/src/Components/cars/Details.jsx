@@ -14,7 +14,7 @@ export default function Details() {
   const { carId } = useParams();
   const [comments, setComments] = useGetAllComments(carId)
   const createComment = useCreateComment()
-  const {email} = useAuthContext()
+  const {email, userId} = useAuthContext()
   const [car] = useGetOneCar(carId)
   const { isAuthenticated } = useAuthContext()
   const { 
@@ -35,7 +35,7 @@ export default function Details() {
     }
     
   })
-  
+  const isOwner = userId === car._ownerId
 
   return (
     <section className="relative mt-20 ml-20 pl-20">
@@ -68,7 +68,7 @@ export default function Details() {
                 {car.summary}
               </p>
               
-              {isAuthenticated && (
+              {isOwner && (
                 <div className="flex space-x-4">
                   <button
                     className="w-full px-6 py-3 rounded-full bg-red-600 text-white font-semibold text-lg shadow-md transition-transform transform hover:scale-105 hover:bg-red-700"

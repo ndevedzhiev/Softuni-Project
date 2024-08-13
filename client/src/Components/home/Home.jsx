@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import carsApi from "../../api/cars-api.js";
 import LatestCar from "./LatestCar.jsx";
+import { useAuthContext } from "../../contexts/AuthContext.jsx";
 
 export default function Home() {
   const [latestCars, setLatestCars] = useState([]);
+  const { isAuthenticated } = useAuthContext()
 
   useEffect(() => {
     (async () => {
@@ -33,12 +35,12 @@ export default function Home() {
               reliable vehicle.
             </p>
             <div className="mt-8 flex flex-wrap gap-4 justify-center text-center">
-              <Link
+              {!isAuthenticated && (<Link
                 to="/register"
                 className="block w-full rounded bg-rose-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-rose-700 focus:outline-none focus:ring active:bg-rose-500 sm:w-auto"
               >
                 Get Started
-              </Link>
+              </Link> )}
               <Link
                 to="/allcars"
                 className="block w-full rounded bg-white px-12 py-3 text-sm font-medium text-rose-600 shadow hover:text-rose-700 focus:outline-none focus:ring active:text-rose-500 sm:w-auto"
