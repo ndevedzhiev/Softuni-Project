@@ -1,9 +1,11 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate, Navigate } from "react-router-dom";
 import { useGetOneCar } from "../../hooks/useCars.js";
 import useForm from "../../hooks/useForm.js";
 import { useGetAllComments, useCreateComment } from "../../hooks/useComments.js"
 import { useAuthContext } from "../../contexts/AuthContext.jsx";
 import { Link } from "react-router-dom";
+import carsApi from "../../api/cars-api.js";
+
 
 const initialValues = {
   comment: ''
@@ -31,10 +33,18 @@ export default function Details() {
      setComments(oldComments => [...oldComments, newComment])
     } catch (err) {
       console.log(err.message);
-      
     }
-    
-  })
+})
+
+const deleteHandler = async () => {
+  try {
+      await carsApi.remove(carId)
+      Navigate('/allcars')
+  } catch (error) {
+      console.error("Failed to delete car:", error);
+  }
+};
+
   const isOwner = userId === car._ownerId
 
   return (
@@ -86,7 +96,7 @@ export default function Details() {
                   </Link>
 
                   
-                  <button
+                  <button onClick={deleteHandler}
                     className="w-full px-6 py-3 rounded-full bg-red-600 text-white font-semibold text-lg shadow-md transition-transform transform hover:scale-105 hover:bg-red-700"
                     style={{ backgroundColor: '#E11D48' }}
                   >

@@ -16,11 +16,14 @@ export const getOne = (carId) => request.get(`${baseUrl}/${carId}`);
 
 export const create = (carData) => request.post(`${baseUrl}`, carData)
 
+export const remove = (carId) => request.del(`${baseUrl}/${carId}`)
+
 const carsApi = {
     
     getAllCars,
     getOne, 
-    create
+    create,
+    remove,
     
 }
 export default carsApi
