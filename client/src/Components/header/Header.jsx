@@ -1,13 +1,16 @@
 
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useAuthContext } from "../../contexts/AuthContext.jsx";
 
 export default function Header() {
   const { isAuthenticated, changeAuthState } = useAuthContext()
+  const navigate = useNavigate()
 
   const handleLogout = () => {
     changeAuthState({});
     localStorage.removeItem('accessToken');
+    navigate('/')
+
   };
 
   return (

@@ -1,4 +1,4 @@
-import { useParams, useNavigate, Navigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useGetOneCar } from "../../hooks/useCars.js";
 import useForm from "../../hooks/useForm.js";
 import { useGetAllComments, useCreateComment } from "../../hooks/useComments.js"
@@ -80,38 +80,38 @@ const deleteHandler = async () => {
               </p>
               
                   <div className="flex space-x-4">
-          {isAuthenticated && (
-          <>
-          {!isOwner ? (
-            <button
-              className="w-full px-6 py-3 rounded-full bg-red-600 text-white font-semibold text-lg shadow-md transition-transform transform hover:scale-105 hover:bg-red-700"
-              style={{ backgroundColor: '#E11D48' }}
-            >
-                      Contact Seller
-                    </button>
-              ) : (
-                <>
-                  <Link
-                    className="w-full px-6 py-3 rounded-full bg-red-600 text-white font-semibold text-lg shadow-md transition-transform transform hover:scale-105 hover:bg-red-700"
-                    style={{ backgroundColor: "#E11D48" }}
-                    to={`/cars/${carId}/edit`}
-                  >
-                    Edit
-                  </Link>
+                  {isAuthenticated && (
+                  <>
+                  {!isOwner ? (
+                    <button
+                      className="w-full px-6 py-3 rounded-full bg-red-600 text-white font-semibold text-lg shadow-md transition-transform transform hover:scale-105 hover:bg-red-700"
+                      style={{ backgroundColor: '#E11D48' }}
+                    >
+                              Contact Seller
+                            </button>
+                      ) : (
+                        <>
+                          <Link
+                            className="w-full px-6 py-3 rounded-full bg-red-600 text-white font-semibold text-lg shadow-md transition-transform transform hover:scale-105 hover:bg-red-700"
+                            style={{ backgroundColor: "#E11D48" }}
+                            to={`/cars/${carId}/edit`}
+                          >
+                            Edit
+                          </Link>
 
-                  <button
-                    onClick={deleteHandler}
-                    className="w-full px-6 py-3 rounded-full bg-red-600 text-white font-semibold text-lg shadow-md transition-transform transform hover:scale-105 hover:bg-red-700"
-                    style={{ backgroundColor: '#E11D48' }}
-                  >
-                    Delete
-                  </button>
-                </>
-              )}
-            </>
-          )}
-        </div>
-                {isAuthenticated && (
+                          <button
+                            onClick={deleteHandler}
+                            className="w-full px-6 py-3 rounded-full bg-red-600 text-white font-semibold text-lg shadow-md transition-transform transform hover:scale-105 hover:bg-red-700"
+                            style={{ backgroundColor: '#E11D48' }}
+                          >
+                            Delete
+                          </button>
+                        </>
+                      )}
+                    </>
+                  )}
+                </div>
+                  {isAuthenticated && (
                     <article className="p-4">
                       <label className="block text-lg mb-2">Add new comment :</label>
                         <form className="flex flex-col" onSubmit={submitHandler}>
