@@ -20,29 +20,30 @@ export default function Details() {
   const [car] = useGetOneCar(carId)
   const { isAuthenticated } = useAuthContext()
   const navigate = useNavigate()
-  const { 
-    changeHandler, 
-    submitHandler, 
+  const {
+    changeHandler,
+    submitHandler,
     values,
-   } = useForm(initialValues, async ({ comment }) => {
+  } = useForm(initialValues, async ({ comment }) => {
     try {
-     const newComment = {
-      text: comment,
-      author: { email },
-    };
-     await createComment(carId, comment)
-     setComments(oldComments => [...oldComments, newComment])
+      const newComment = await createComment(carId, comment)
+  
+      if (!newComment.author) {
+        newComment.author = { email }
+      }
+  
+      setComments((oldComments) => [...oldComments, newComment])
     } catch (err) {
-      console.log(err.message);
+      console.log(err.message)
     }
-})
+  });
 
 const deleteHandler = async () => {
   try {
       await carsApi.remove(carId)
       navigate('/allcars')
   } catch (error) {
-      console.error("Failed to delete car:", error);
+      console.error("Failed to delete car:", error)
   }
 };
 
