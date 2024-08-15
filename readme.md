@@ -48,7 +48,7 @@
 8. UI Implementation
   - Dynamic navigation
   - Create article - API function and Hook
-  - Edit funtionality
-  - Detete funtionality
+  - Edit
+  - Detete
   - Route Guards added
  
