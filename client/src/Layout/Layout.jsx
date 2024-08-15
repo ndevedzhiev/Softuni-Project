@@ -32,15 +32,15 @@ export default function Layout() {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/contact" element={<ContactUs />} />
-           
             <Route path="/partners" element={<Partners />} />
             <Route path="/allcars" element={<AllCars />} />
             <Route path="/cars/:carId/details" element={<Details />} />
             <Route path="/details" element={<Details />} />
             <Route path="*" element={<NotFound />} />
             <Route path="/logout" element={<Logout />} />
+            
             <Route element={<PrivateRoutes />}>
-                <Route element={<Home/>} path="/" exact/>
+                <Route path="/cars/:carId/edit" element={<EditCarForm />} />
                 <Route element={<Sell/>} path="/sell"/>
        
             </Route>
